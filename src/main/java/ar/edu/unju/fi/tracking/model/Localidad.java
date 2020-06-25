@@ -3,12 +3,14 @@
  */
 package ar.edu.unju.fi.tracking.model;
 
+import java.io.Serializable;
+
 /**
  * Representa una localidad
  * @author Dalila
  *
  */
-public class Localidad {
+public class Localidad implements Serializable {
 	/**
 	 * Representa el nombre de una localidad o pueblo
 	 */

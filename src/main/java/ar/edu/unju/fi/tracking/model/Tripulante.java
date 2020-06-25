@@ -3,12 +3,14 @@
  */
 package ar.edu.unju.fi.tracking.model;
 
+import java.io.Serializable;
+
 /**
  * Esta clase representa a al tripulante 
  * @author Dalila
  *
  */
-public class Tripulante {
+public class Tripulante implements Serializable{
 	/*
 	 * Representa la identificacion unica del tripulante
 	 */
