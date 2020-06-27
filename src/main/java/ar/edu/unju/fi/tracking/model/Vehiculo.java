@@ -3,6 +3,8 @@
  */
 package ar.edu.unju.fi.tracking.model;
 
+import java.io.Serializable;
+
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,7 +14,7 @@ import org.springframework.stereotype.Component;
  *
  */
 @Component("unVehiculo")
-public class Vehiculo {
+public class Vehiculo implements Serializable {
 	/**
 	 * Representa la patente de un vehiculo
 	 */

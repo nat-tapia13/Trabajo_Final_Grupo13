@@ -3,6 +3,7 @@
  */
 package ar.edu.unju.fi.tracking.model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -18,7 +19,7 @@ import org.springframework.stereotype.Component;
  */
 
 @Component("unRegistroTracking")
-public class RegistroTracking {
+public class RegistroTracking implements Serializable{
 	
 	/**
 	 * Representa la fecha y hora del registro
