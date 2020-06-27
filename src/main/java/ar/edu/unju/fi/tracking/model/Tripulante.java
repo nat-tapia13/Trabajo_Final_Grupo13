@@ -5,25 +5,29 @@ package ar.edu.unju.fi.tracking.model;
 
 import java.io.Serializable;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Esta clase representa a al tripulante 
  * @author Dalila
  *
  */
+
+@Component("unTripulante")
 public class Tripulante implements Serializable{
-	/*
+	/**
 	 * Representa la identificacion unica del tripulante
 	 */
 	private String documento;
-	/*
+	/**
 	 * Representa el apellido del tripulante
 	 */
 	private String apellido;
-	/*
+	/**
 	 * Representa el nombre completo del tripulante
 	 */
 	private String nombres;
-	/*
+	/**
 	 * Representa la nacionalidad del tripulante
 	 */
 	private String nacionalidad;
@@ -97,6 +101,8 @@ public class Tripulante implements Serializable{
 	public void setNacionalidad(String nacionalidad) {
 		this.nacionalidad = nacionalidad;
 	}
+	
+	//---------------------Método toString-------------------------
 	@Override
 	public String toString() {
 		return "Tripulante [documento=" + documento + ", apellido=" + apellido + ", nombres=" + nombres

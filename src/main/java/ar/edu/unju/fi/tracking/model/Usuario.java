@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @author Natalia
  * 
  */
-@Component
+@Component("unUsuario")
 public class Usuario implements Serializable {
 
 	/*
