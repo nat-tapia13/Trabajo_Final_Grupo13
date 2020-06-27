@@ -5,11 +5,14 @@ package ar.edu.unju.fi.tracking.model;
 
 import java.io.Serializable;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Representa una localidad
  * @author Dalila
  *
  */
+@Component("unaLocalidad")
 public class Localidad implements Serializable {
 	/**
 	 * Representa el nombre de una localidad o pueblo
@@ -43,6 +46,8 @@ public class Localidad implements Serializable {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+	//-----------------Método toString------------------------
 	@Override
 	public String toString() {
 		return "Localidad [nombre=" + nombre + "]";
