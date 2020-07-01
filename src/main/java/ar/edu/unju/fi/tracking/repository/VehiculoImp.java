@@ -3,6 +3,8 @@
  */
 package ar.edu.unju.fi.tracking.repository;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import ar.edu.unju.fi.tracking.model.Vehiculo;
@@ -32,7 +34,7 @@ public class VehiculoImp implements IVehiculoDAO {
 	 */
 
 	@Override
-	public Vehiculo listarVehiculo() {
+	public List<Vehiculo> listarVehiculo() {
 		// TODO Auto-generated method stub
 		return null;
 	}
