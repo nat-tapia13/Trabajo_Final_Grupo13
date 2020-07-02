@@ -1,16 +1,14 @@
-/**
- * 
- */
 package ar.edu.unju.fi.tracking.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.OneToMany;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -19,55 +17,63 @@ import org.springframework.stereotype.Component;
  * CLase Vehiculo representa un vehiculo
  *
  */
+@Entity
+@Table(name="vehiculos")
 @Component("unVehiculo")
 public class Vehiculo implements Serializable {
+	
+	private static final long serialVersionUID=1L;
+	
 	/**
 	 * Representa la patente de un vehiculo
 	 */
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)	
+	@Column(name="ID",length=10,nullable=false)
 	private String patente;
 	
 	/**
 	 * Representa el color del vehiculo
 	 */
+	@Column(name="ID_COLOR",length=30,nullable=false)
 	private String color;
 	
 	/**
 	 * Representa al titular dueño del vehiculo
 	 */
+	@Column(name="ID_TITULAR",length=50,nullable=false)
 	private String titular;
 	
 	/**
 	 * Representa la marca del vehiculo
 	 */
+	@Column(name="ID_MARCA",length=30,nullable=false)
 	private String marca;
 	
 	/**
 	 * Representa el modelo del vehiculo
 	 */
+	@Column(name="ID_MODELO",length=20,nullable=false)
 	private String modelo;
 	
 	/**
 	 * Representa el tipo de vehiculo
 	 */
+	@Column(name="ID_TIPO",length=20,nullable=false)
 	private String tipo;
 	
 	/**
 	 * Representa el numero del chasis del vehiculo
 	 */
+	@Column(name="ID_NUMEROCHASIS",length=20,nullable=false)
 	private String numeroChasis;
 	
 	/**
 	 * Representa el numero de motor del vehiculo
 	 */
+	@Column(name="ID_NUMEROMOTOR",length=15,nullable=false)
 	private String numeroMotor;
-	
-	/**
-	 * Representa una lista de registroTracking asociadas a este vehivulo
-	 */
-	@Autowired
-	@OneToMany(mappedBy = "vehiculo" , cascade = CascadeType.ALL)
-	private List<RegistroTracking> registros = new ArrayList<RegistroTracking>();
-	
+
 	//----------------------Constructores de la clase------------------------
 	/**
 	 * Constructor por defecto
@@ -188,20 +194,6 @@ public class Vehiculo implements Serializable {
 	 */
 	public void setNumeroMotor(String numeroMotor) {
 		this.numeroMotor = numeroMotor;
-	}
-
-	/**
-	 * @return the registros
-	 */
-	public List<RegistroTracking> getRegistros() {
-		return registros;
-	}
-
-	/**
-	 * @param registros the registros to set
-	 */
-	public void setRegistros(List<RegistroTracking> registros) {
-		this.registros = registros;
 	}
 
 	//--------------------------------Metodo toString-------------------------------------

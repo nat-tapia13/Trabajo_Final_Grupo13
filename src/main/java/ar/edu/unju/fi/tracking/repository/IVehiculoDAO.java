@@ -8,13 +8,14 @@ import java.util.List;
 import ar.edu.unju.fi.tracking.model.Vehiculo;
 
 /**
- * Representa la Interfaz Vehiculo y sus metoos abstractos
+ * Representa la Interfaz Vehiculo y sus metodos abstractos
  * @author Dalila
  *
  */
 public interface IVehiculoDAO {
-	public void guardar();
+	
 	public List <Vehiculo> listarVehiculo();
+	public void guardar(Vehiculo vehiculo);
 	public Vehiculo consultar();
 
 }

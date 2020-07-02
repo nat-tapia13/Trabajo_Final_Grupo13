@@ -4,16 +4,7 @@
 package ar.edu.unju.fi.tracking.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -22,29 +13,14 @@ import org.springframework.stereotype.Component;
  *
  */
 @Component("unaLocalidad")
-@Entity
-@Table(name = "localidades")
 public class Localidad implements Serializable {
 	
-	/**
-	 * Representa el identificacion univoca de la localidad
-	 */
-	@Id
-	@Column(name = "id_localidad")
-	private Long id;
+	private static final long serialVersionUID=1L;
 	
 	/**
 	 * Representa el nombre de una localidad o pueblo
 	 */
 	private String nombre;
-	
-	/**
-	 * Representa una lista de registros tracking que se realizaron en la localidad
-	 */
-	@Autowired
-	@OneToMany(mappedBy = "localidad")
-	private List<RegistroTracking> registros = new ArrayList<RegistroTracking>();
-	
 	//---------------CONTRUCTORES-------------------
 	/**
 	 * Constructor  por defecto
@@ -61,24 +37,11 @@ public class Localidad implements Serializable {
 		this.nombre = nombre;
 	}
 	//-------------METODOS ACCESORES-----------------
-	
 	/**
 	 * @return the nombre
 	 */
 	public String getNombre() {
 		return nombre;
-	}
-	/**
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
-	}
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(Long id) {
-		this.id = id;
 	}
 	/**
 	 * @param nombre the nombre to set
@@ -87,18 +50,6 @@ public class Localidad implements Serializable {
 		this.nombre = nombre;
 	}
 	
-	/**
-	 * @return the registros
-	 */
-	public List<RegistroTracking> getRegistros() {
-		return registros;
-	}
-	/**
-	 * @param registros the registros to set
-	 */
-	public void setRegistros(List<RegistroTracking> registros) {
-		this.registros = registros;
-	}
 	//-----------------Método toString------------------------
 	@Override
 	public String toString() {

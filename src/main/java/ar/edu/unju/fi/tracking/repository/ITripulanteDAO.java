@@ -1,6 +1,3 @@
-/**
- * 
- */
 package ar.edu.unju.fi.tracking.repository;
 
 import ar.edu.unju.fi.tracking.model.Tripulante;

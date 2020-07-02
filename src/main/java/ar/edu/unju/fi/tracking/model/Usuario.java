@@ -1,20 +1,7 @@
 package ar.edu.unju.fi.tracking.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -23,57 +10,37 @@ import org.springframework.stereotype.Component;
  * 
  */
 @Component("unUsuario")
-@Entity
-@Table(name = "usuarios")
 public class Usuario implements Serializable {
 
 	/*
 	 * ATRIBUTOS
 	 * 
 	 */
-	/**
-	 * Representa la identificacion univoca de un Usuario
-	 */
-	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	@Column(name = "id_usuario")
-	private Long id;
+	
 	/**
 	 * Atributo que representa el nombre del usuario
 	 */
-	@Column (name="nombre_usuario",length = 150, nullable = true)
 	private String nombreUsuario;
 	
 	/**
 	 * Atributo que representa la contraseña del usuario
 	 */
-	@Column (name= "password",length = 8,nullable = true)
 	private String password;
 	
 	/**
 	 * Atributo que representa el nombre real del usuaurio
 	 */
-	@Column (name="nombre_real",length = 150, nullable = true)
 	private String nombreReal;
 	
 	/**
 	 * Atributo que representa el apellido real del usuario
 	 */
-	@Column (name="apellido_real",length = 150, nullable = true)
 	private String apellidoReal;
 	
 	/**
 	 *Atributo que representa al tipo de usuario
 	 */
-	@Column (name="tipo_usuario",length = 11, nullable = true)
 	private String tipoUsuario;
-	/**
-	 * Representa una lista de registro que pertenecen a un Usuario
-	 */
-	@Autowired
-	@OneToMany (mappedBy = "usuario", cascade = CascadeType.ALL)
-	@JoinColumn (name="registro_id")
-	private List<RegistroTracking> registro=new ArrayList<RegistroTracking>();
 	
 	/*
 	 * CONSTRUCTORES
@@ -90,22 +57,15 @@ public class Usuario implements Serializable {
 	}
 	/**
 	 * Constructor parametrizado
-	 * @param id
+	 * 
 	 * @param nombreUsuario
 	 * @param password
 	 * @param nombreReal
 	 * @param apellidoReal
 	 * @param tipoUsuario
 	 */
-	public Usuario(Long id, String nombreUsuario, String password, String nombreReal, String apellidoReal,
-			String tipoUsuario) {
-		super();
-		this.id = id;
-		this.nombreUsuario = nombreUsuario;
-		this.password = password;
-		this.nombreReal = nombreReal;
-		this.apellidoReal = apellidoReal;
-		this.tipoUsuario = tipoUsuario;
+	public Usuario(String nombreUsuario,String password,String nombreReal,String apellidoReal,String tipoUsuario) {
+		
 	}
 	/*
 	 * METODOS ACCESORES
@@ -120,6 +80,7 @@ public class Usuario implements Serializable {
 	public String getNombreUsuario() {
 		return nombreUsuario;
 	}
+
 	/**
 	 * Asigna un valor al nombreUsuario a Usuario
 	 * @param nombreUsuario del nombreUsuario del Usuario
@@ -191,39 +152,13 @@ public class Usuario implements Serializable {
 	public void setTipoUsuario(String tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
 	}
-	
-	/**
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
-	}
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
-	
-	/**
-	 * @return the registro
-	 */
-	public List<RegistroTracking> getRegistro() {
-		return registro;
-	}
-	/**
-	 * @param registro the registro to set
-	 */
-	public void setRegistro(List<RegistroTracking> registro) {
-		this.registro = registro;
-	}
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nombreUsuario=" + nombreUsuario + ", password=" + password + ", nombreReal="
-				+ nombreReal + ", apellidoReal=" + apellidoReal + ", tipoUsuario=" + tipoUsuario + "]";
+		return "Usuario [nombreUsuario=" + nombreUsuario + ", password=" + password + ", nombreReal=" + nombreReal
+				+ ", apellidoReal=" + apellidoReal + ", tipoUsuario=" + tipoUsuario + ", getNombreUsuario()="
+				+ getNombreUsuario() + ", getPassword()=" + getPassword() + ", getNombreReal()=" + getNombreReal()
+				+ ", getApellidoReal()=" + getApellidoReal() + ", getTipoUsuario()=" + getTipoUsuario() + "]";
 	}
-	
 	
 	
 }

@@ -1,37 +1,39 @@
 package ar.edu.unju.fi.tracking.repository;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import ar.edu.unju.fi.ProyectoFinalGrupo13Application;
 import ar.edu.unju.fi.tracking.model.Localidad;
 
-@Repository("localidadImp")
+@Repository("localiadImp")
 public class LocalidadImp implements ILocalidadDAO{
 
-	/**
-	 * Guarda un localidad (Carga a la BD una Localidad)
-	 */
+	@Autowired
+	private Localidad localidad;
+	@Autowired
+	
+	public static Logger LOG =LoggerFactory.getLogger(ProyectoFinalGrupo13Application.class);
 	@Override
 	public void guardar() {
-		// TODO Auto-generated method stub
-		
+		//acción ejecutada para guardar un objeto localidad en la BD
+	LOG.info("La localidad fue guardada"+localidad.getNombre());	
+	
 	}
 
-	/**
-	 * Modifica una localidad
-	 */
 	@Override
 	public Localidad modificar() {
-		// TODO Auto-generated method stub
-		return null;
+		//// se modifa el objeto localidad de la BD
+		LOG.info("Se modifo localidad en la base de datos");
+		return localidad;
 	}
 
-	/**
-	 * Elimina una Localidad
-	 */
 	@Override
 	public void eliminar() {
-		// TODO Auto-generated method stub
-		
+		//se elimina el objeto localidad de la BD
+		LOG.info("Se elimino localidad de la bd");
 	}
 
 	

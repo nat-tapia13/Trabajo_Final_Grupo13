@@ -1,12 +1,13 @@
-/**
- * 
- */
 package ar.edu.unju.fi.tracking.repository;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import ar.edu.unju.fi.ProyectoFinalGrupo13Application;
 import ar.edu.unju.fi.tracking.model.Vehiculo;
 
 /**
@@ -16,12 +17,18 @@ import ar.edu.unju.fi.tracking.model.Vehiculo;
  */
 @Repository ("vehiculoImp")
 public class VehiculoImp implements IVehiculoDAO {
+	
+	@Autowired
+	private Vehiculo vehiculo;
+	
+	public static Logger LOG =LoggerFactory.getLogger(ProyectoFinalGrupo13Application.class);
 	/**
 	 * Este metodo Guarda un vehiculo en la DB
 	 */
 	@Override
-	public void guardar() {
-		// TODO Auto-generated method stub
+	public void guardar(Vehiculo vehiculo) {
+		//accion ejecutada para guardar un objeto vheiculo en la BD
+		LOG.info("El numero de patente del vheiculo fue guardado"+vehiculo.getPatente());
 		
 	}
 	
@@ -35,17 +42,18 @@ public class VehiculoImp implements IVehiculoDAO {
 
 	@Override
 	public List<Vehiculo> listarVehiculo() {
-		// TODO Auto-generated method stub
+		// 
 		return null;
 	}
 	/**
-	 * Este metodo consilta los vehiculos en la BD
+	 * Este metodo consulta los vehiculos en la BD
 	 * @return el vehiculo que reunas las condiciones de consulta
 	 */
 	@Override
 	public Vehiculo consultar() {
-		// TODO Auto-generated method stub
-		return null;
+		//se muestran todos los datos de vehiculo 
+		return vehiculo;
 	}
+
 
 }
