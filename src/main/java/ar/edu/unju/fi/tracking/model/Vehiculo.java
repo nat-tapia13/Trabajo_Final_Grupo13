@@ -4,7 +4,13 @@
 package ar.edu.unju.fi.tracking.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.OneToMany;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -54,6 +60,13 @@ public class Vehiculo implements Serializable {
 	 * Representa el numero de motor del vehiculo
 	 */
 	private String numeroMotor;
+	
+	/**
+	 * Representa una lista de registroTracking asociadas a este vehivulo
+	 */
+	@Autowired
+	@OneToMany(mappedBy = "vehiculo" , cascade = CascadeType.ALL)
+	private List<RegistroTracking> registros = new ArrayList<RegistroTracking>();
 	
 	//----------------------Constructores de la clase------------------------
 	/**
@@ -175,6 +188,20 @@ public class Vehiculo implements Serializable {
 	 */
 	public void setNumeroMotor(String numeroMotor) {
 		this.numeroMotor = numeroMotor;
+	}
+
+	/**
+	 * @return the registros
+	 */
+	public List<RegistroTracking> getRegistros() {
+		return registros;
+	}
+
+	/**
+	 * @param registros the registros to set
+	 */
+	public void setRegistros(List<RegistroTracking> registros) {
+		this.registros = registros;
 	}
 
 	//--------------------------------Metodo toString-------------------------------------

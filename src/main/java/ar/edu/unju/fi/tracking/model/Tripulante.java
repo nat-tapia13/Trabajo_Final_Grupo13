@@ -4,7 +4,12 @@
 package ar.edu.unju.fi.tracking.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.ManyToMany;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -31,6 +36,15 @@ public class Tripulante implements Serializable{
 	 * Representa la nacionalidad del tripulante
 	 */
 	private String nacionalidad;
+	
+	/**
+	 * Representa una lista de Registro Tracking perteneciente a este Tripulante
+	 */
+	@Autowired
+	@ManyToMany(mappedBy = "tripulante")
+	private List<RegistroTracking> registros = new ArrayList<RegistroTracking>();
+	
+	
 	//---------------CONTRUCTORES-------------------
 	/**
 	 * Constructor  por defecto
@@ -102,6 +116,18 @@ public class Tripulante implements Serializable{
 		this.nacionalidad = nacionalidad;
 	}
 	
+	/**
+	 * @return the registros
+	 */
+	public List<RegistroTracking> getRegistros() {
+		return registros;
+	}
+	/**
+	 * @param registros the registros to set
+	 */
+	public void setRegistros(List<RegistroTracking> registros) {
+		this.registros = registros;
+	}
 	//---------------------Método toString-------------------------
 	@Override
 	public String toString() {
