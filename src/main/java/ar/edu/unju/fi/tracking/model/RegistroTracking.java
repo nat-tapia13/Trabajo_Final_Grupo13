@@ -8,12 +8,14 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -42,6 +44,7 @@ public class RegistroTracking implements Serializable{
 	/**
 	 * Representa la fecha y hora del registro
 	 */
+	@Column(name="FECHA_Y_HORA")
 	private LocalDateTime fechaHora;
 	
 	/**
@@ -49,13 +52,18 @@ public class RegistroTracking implements Serializable{
 	 */
 	@Autowired
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id_vehiculo")
+	@JoinColumn(name="ID_VEHICULO")
 	private Vehiculo vehiculo;
 	
 	/**
 	 * Representa el o los tripulantes del vehiculo
 	 */
 	@Autowired
+	@JoinTable(
+			name = "rel-registro-tripulante",
+			joinColumns = @JoinColumn(name = "ID_REGISTRO",nullable = false),
+			inverseJoinColumns = @JoinColumn(name = "ID_TRIPULANTE",nullable = false)
+			)
 	@ManyToMany(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
 	private List<Tripulante> tripulantes;
 	
