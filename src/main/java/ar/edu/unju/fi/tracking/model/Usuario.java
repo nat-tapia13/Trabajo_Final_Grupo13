@@ -1,14 +1,20 @@
 package ar.edu.unju.fi.tracking.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -61,8 +67,13 @@ public class Usuario implements Serializable {
 	 */
 	@Column (name="tipo_usuario",length = 11, nullable = true)
 	private String tipoUsuario;
-	
-	private List<RegistroTraiking>
+	/**
+	 * Representa una lista de registro que pertenecen a un Usuario
+	 */
+	@Autowired
+	@OneToMany (mappedBy = "usuario", cascade = CascadeType.ALL)
+	@JoinColumn (name="registro_id")
+	private List<RegistroTracking> registro=new ArrayList<RegistroTracking>();
 	
 	/*
 	 * CONSTRUCTORES
@@ -79,16 +90,17 @@ public class Usuario implements Serializable {
 	}
 	/**
 	 * Constructor parametrizado
-	 * 
+	 * @param id
 	 * @param nombreUsuario
 	 * @param password
 	 * @param nombreReal
 	 * @param apellidoReal
 	 * @param tipoUsuario
 	 */
-	public Usuario(String nombreUsuario, String password, String nombreReal, String apellidoReal,
+	public Usuario(Long id, String nombreUsuario, String password, String nombreReal, String apellidoReal,
 			String tipoUsuario) {
 		super();
+		this.id = id;
 		this.nombreUsuario = nombreUsuario;
 		this.password = password;
 		this.nombreReal = nombreReal;
@@ -192,9 +204,23 @@ public class Usuario implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	
+	/**
+	 * @return the registro
+	 */
+	public List<RegistroTracking> getRegistro() {
+		return registro;
+	}
+	/**
+	 * @param registro the registro to set
+	 */
+	public void setRegistro(List<RegistroTracking> registro) {
+		this.registro = registro;
+	}
 	@Override
 	public String toString() {
-		return "Usuario [nombreUsuario=" + nombreUsuario + ", password=" + password + ", nombreReal="
+		return "Usuario [id=" + id + ", nombreUsuario=" + nombreUsuario + ", password=" + password + ", nombreReal="
 				+ nombreReal + ", apellidoReal=" + apellidoReal + ", tipoUsuario=" + tipoUsuario + "]";
 	}
 	

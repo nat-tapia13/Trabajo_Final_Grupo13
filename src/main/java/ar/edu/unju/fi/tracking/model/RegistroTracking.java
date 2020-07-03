@@ -72,6 +72,14 @@ public class RegistroTracking implements Serializable{
 	 */
 	private String detalleLugarRegistro;
 	
+	/**
+	 * Representa un objeto del tipo Usuario
+	 */
+	@Autowired
+	@ManyToOne (fetch = FetchType.LAZY)
+	@JoinColumn (name ="usuario_id")
+	private Usuario usuario;
+	
 	//--------------Constructores----------------
 	/**
 	 * Constructor por defecto
@@ -164,6 +172,21 @@ public class RegistroTracking implements Serializable{
 	 */
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	
+	/**
+	 * @return the usuario
+	 */
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	/**
+	 * @param usuario the usuario to set
+	 */
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	//-----------------------------Método toString---------------------------------
