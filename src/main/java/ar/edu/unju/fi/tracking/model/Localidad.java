@@ -10,8 +10,10 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -39,7 +41,9 @@ public class Localidad implements Serializable {
 	/**
 	 * Representa una lista de registros tracking que se realizaron en la localidad
 	 */
-	private List<Localidad> localidades = new ArrayList<Localidad>();
+	@Autowired
+	@OneToMany(mappedBy = "localidad")
+	private List<RegistroTracking> registros = new ArrayList<RegistroTracking>();
 	
 	//---------------CONTRUCTORES-------------------
 	/**
@@ -83,6 +87,18 @@ public class Localidad implements Serializable {
 		this.nombre = nombre;
 	}
 	
+	/**
+	 * @return the registros
+	 */
+	public List<RegistroTracking> getRegistros() {
+		return registros;
+	}
+	/**
+	 * @param registros the registros to set
+	 */
+	public void setRegistros(List<RegistroTracking> registros) {
+		this.registros = registros;
+	}
 	//-----------------Método toString------------------------
 	@Override
 	public String toString() {
