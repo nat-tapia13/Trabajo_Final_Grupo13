@@ -7,6 +7,19 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -20,37 +33,61 @@ import org.springframework.stereotype.Component;
  */
 
 @Component("unRegistroTracking")
+@Entity
+@Table(name = "registros")
 public class RegistroTracking implements Serializable{
 	
-	private static final long serialVersionUID=1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	
 	/**
 	 * Representa la fecha y hora del registro
 	 */
-	private LocalDateTime fechahora;
+	@Column(name="FECHA_Y_HORA")
+	private LocalDateTime fechaHora;
 	
 	/**
 	 * Representa el vehiculo que se va a registrar
 	 */
 	@Autowired
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="ID_VEHICULO")
 	private Vehiculo vehiculo;
 	
 	/**
 	 * Representa el o los tripulantes del vehiculo
 	 */
 	@Autowired
-	private List<Tripulante> tripulante;
+	@JoinTable(
+			name = "rel-registro-tripulante",
+			joinColumns = @JoinColumn(name = "ID_REGISTRO",nullable = false),
+			inverseJoinColumns = @JoinColumn(name = "ID_TRIPULANTE",nullable = false)
+			)
+	@ManyToMany(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
+	private List<Tripulante> tripulantes;
 	
 	/**
 	 * Representa la localidad donde se está registrando el Tracking
 	 */
 	@Autowired
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_localidad")
 	private Localidad localidad;
 	
 	/**
 	 * Representa el detalle del registro del Tracking
 	 */
 	private String detalleLugarRegistro;
+	
+	/**
+	 * Representa un objeto del tipo Usuario
+	 */
+	@Autowired
+	@ManyToOne (fetch = FetchType.LAZY)
+	@JoinColumn (name ="usuario_id")
+	private Usuario usuario;
 	
 	//--------------Constructores----------------
 	/**
@@ -63,17 +100,17 @@ public class RegistroTracking implements Serializable{
 	//---------------------Métodos Accesores-------------------------
 
 	/**
-	 * @return the fechahora
+	 * @return the fechaHora
 	 */
-	public LocalDateTime getFechahora() {
-		return fechahora;
+	public LocalDateTime getFechaHora() {
+		return fechaHora;
 	}
 
 	/**
 	 * @param fechahora the fechahora to set
 	 */
-	public void setFechahora(LocalDateTime fechahora) {
-		this.fechahora = fechahora;
+	public void setFechaHora(LocalDateTime fechahora) {
+		this.fechaHora = fechahora;
 	}
 
 	/**
@@ -91,17 +128,17 @@ public class RegistroTracking implements Serializable{
 	}
 
 	/**
-	 * @return the tripulante
+	 * @return the tripulantes
 	 */
-	public List<Tripulante> getTripulante() {
-		return tripulante;
+	public List<Tripulante> getTripulantes() {
+		return tripulantes;
 	}
 
 	/**
-	 * @param tripulante the tripulante to set
+	 * @param tripulante the tripulantes to set
 	 */
-	public void setTripulante(List<Tripulante> tripulante) {
-		this.tripulante = tripulante;
+	public void setTripulantes(List<Tripulante> tripulante) {
+		this.tripulantes = tripulante;
 	}
 
 	/**
@@ -132,14 +169,40 @@ public class RegistroTracking implements Serializable{
 		this.detalleLugarRegistro = detalleLugarRegistro;
 	}
 
-	//-----------------------------Método toString---------------------------------
-	@Override
-	public String toString() {
-		return "RegistroTracking [fechahora=" + fechahora + ", vehiculo=" + vehiculo + ", tripulante=" + tripulante
-				+ ", localidad=" + localidad + ", detalleLugarRegistro=" + detalleLugarRegistro + "]";
+	/**
+	 * @return the id
+	 */
+	public Long getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 	
-	
+	/**
+	 * @return the usuario
+	 */
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	/**
+	 * @param usuario the usuario to set
+	 */
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	//-----------------------------Método toString---------------------------------
+	@Override
+	public String toString() {
+		return "RegistroTracking [fechahora=" + fechaHora + ", vehiculo=" + vehiculo + ", tripulante=" + tripulantes
+				+ ", localidad=" + localidad + ", detalleLugarRegistro=" + detalleLugarRegistro + "]";
+	}
 
 }

@@ -1,14 +1,19 @@
 package ar.edu.unju.fi.tracking.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -28,51 +33,61 @@ public class Vehiculo implements Serializable {
 	 * Representa la patente de un vehiculo
 	 */
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)	
-	@Column(name="ID",length=10,nullable=false)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "ID")
+	private Long id;
+	
+	@Column(name="PATENTE",length=10,nullable=false)
 	private String patente;
 	
 	/**
 	 * Representa el color del vehiculo
 	 */
-	@Column(name="ID_COLOR",length=30,nullable=false)
+	@Column(name="COLOR",length=30,nullable=false)
 	private String color;
 	
 	/**
 	 * Representa al titular dueño del vehiculo
 	 */
-	@Column(name="ID_TITULAR",length=50,nullable=false)
+	@Column(name="TITULAR",length=100,nullable=false)
 	private String titular;
 	
 	/**
 	 * Representa la marca del vehiculo
 	 */
-	@Column(name="ID_MARCA",length=30,nullable=false)
+	@Column(name="MARCA",length=30,nullable=false)
 	private String marca;
 	
 	/**
 	 * Representa el modelo del vehiculo
 	 */
-	@Column(name="ID_MODELO",length=20,nullable=false)
+	@Column(name="MODELO",length=20,nullable=false)
 	private String modelo;
 	
 	/**
 	 * Representa el tipo de vehiculo
 	 */
-	@Column(name="ID_TIPO",length=20,nullable=false)
+	@Column(name="TIPO",length=20,nullable=false)
 	private String tipo;
 	
 	/**
 	 * Representa el numero del chasis del vehiculo
 	 */
-	@Column(name="ID_NUMEROCHASIS",length=20,nullable=false)
+	@Column(name="NUMERO_CHASIS",length=20,nullable=false)
 	private String numeroChasis;
 	
 	/**
 	 * Representa el numero de motor del vehiculo
 	 */
-	@Column(name="ID_NUMEROMOTOR",length=15,nullable=false)
+	@Column(name="NUMERO_MOTOR",length=15,nullable=false)
 	private String numeroMotor;
+	
+	/**
+	 * Representa una lista de registroTracking asociadas a este vehivulo
+	 */
+	@Autowired
+	@OneToMany(mappedBy = "vehiculo" , cascade = CascadeType.ALL)
+	private List<RegistroTracking> registros = new ArrayList<RegistroTracking>();
 
 	//----------------------Constructores de la clase------------------------
 	/**
@@ -83,12 +98,26 @@ public class Vehiculo implements Serializable {
 	}
 	
 	//-----------------------Metodos Accesores----------------------------
-
+	
 	/**
 	 * @return la patente de un vehiculo
 	 */
 	public String getPatente() {
 		return patente;
+	}
+
+	/**
+	 * @return the id
+	 */
+	public Long getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	/**
@@ -194,6 +223,20 @@ public class Vehiculo implements Serializable {
 	 */
 	public void setNumeroMotor(String numeroMotor) {
 		this.numeroMotor = numeroMotor;
+	}
+
+	/**
+	 * @return the registros
+	 */
+	public List<RegistroTracking> getRegistros() {
+		return registros;
+	}
+
+	/**
+	 * @param registros the registros to set
+	 */
+	public void setRegistros(List<RegistroTracking> registros) {
+		this.registros = registros;
 	}
 
 	//--------------------------------Metodo toString-------------------------------------

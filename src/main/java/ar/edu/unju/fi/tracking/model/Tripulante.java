@@ -1,14 +1,18 @@
 package ar.edu.unju.fi.tracking.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -32,18 +36,26 @@ public class Tripulante implements Serializable{
 	/**
 	 * Representa el apellido del tripulante
 	 */
-	@Column(name="ID_APELLIDO",length=10,nullable=false)
+	@Column(name="APELLIDO",length=10,nullable=false)
 	private String apellido;
 	/**
 	 * Representa el nombre completo del tripulante
 	 */
-	@Column(name="ID_NOMBRES",length=10,nullable=false)
+	@Column(name="NOMBRES",length=10,nullable=false)
 	private String nombres;
 	/**
 	 * Representa la nacionalidad del tripulante
 	 */
-	@Column(name="ID_NACIONALIDAD",length=20,nullable=false)
+	@Column(name="NACIONALIDAD",length=20,nullable=false)
 	private String nacionalidad;
+	
+	/**
+	 * Representa una lista de Registro Tracking perteneciente a este Tripulante
+	 */
+	@Autowired
+	@ManyToMany(mappedBy = "tripulante")
+	private List<RegistroTracking> registros = new ArrayList<RegistroTracking>();
+	
 	//---------------CONTRUCTORES-------------------
 	/**
 	 * Constructor  por defecto
@@ -113,6 +125,19 @@ public class Tripulante implements Serializable{
 	 */
 	public void setNacionalidad(String nacionalidad) {
 		this.nacionalidad = nacionalidad;
+	}
+	
+	/**
+	 * @return the registros
+	 */
+	public List<RegistroTracking> getRegistros() {
+		return registros;
+	}
+	/**
+	 * @param registros the registros to set
+	 */
+	public void setRegistros(List<RegistroTracking> registros) {
+		this.registros = registros;
 	}
 	
 	//---------------------Método toString-------------------------
