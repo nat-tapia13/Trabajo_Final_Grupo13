@@ -15,7 +15,7 @@ import ar.edu.unju.fi.tracking.model.Vehiculo;
 public interface IVehiculoDAO {
 	
 	public List <Vehiculo> listarVehiculo();
-	public void guardar(Vehiculo vehiculo);
+	public void guardar();
 	public Vehiculo consultar();
 
 }

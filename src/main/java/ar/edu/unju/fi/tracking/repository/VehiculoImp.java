@@ -26,7 +26,7 @@ public class VehiculoImp implements IVehiculoDAO {
 	 * Este metodo Guarda un vehiculo en la DB
 	 */
 	@Override
-	public void guardar(Vehiculo vehiculo) {
+	public void guardar() {
 		//accion ejecutada para guardar un objeto vheiculo en la BD
 		LOG.info("El numero de patente del vheiculo fue guardado"+vehiculo.getPatente());
 		
