@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registro</title>
+<link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body class="container">
+
+<h1>Registro de Veiculos</h1>
+	<div>
+		<div class="card-header">
+			<h3>Datos del Tripulante</h3>
+		</div>
+		<form>
+		  <div class="form-row">
+		    <div class="form-group col-md-6">
+		      <label for="id_nombre">Nombre</label>
+		      <input type="text" class="form-control" id="id_nombre">
+		    </div>
+		    <div class="form-group col-md-6">
+		      <label for="id_apellido">Apellido</label>
+		      <input type="text" class="form-control" id="id_apellido">
+		    </div>
+		  </div>
+		  <div class="form-row">
+		    <div class="form-group col-md-6">
+		      <label for="id_dni">DNI</label>
+		      <input type="number" class="form-control" id="id_dni">
+		    </div>
+		    <div class="form-group col-md-6">
+		      <label for="id_nacionalidad">Nacionalidad</label>
+		      <select id="id_nacionalidad" class="form-control">
+		        <option selected>seleccionar</option>
+		        <option>Argentina</option>
+		        <option>Brasil</option>
+		        <option>Chile</option>
+		        <option>Peru</option>
+		        <option>Bolivia</option>
+		        <option>Uruguay</option>
+		        <option>Paraguay</option>
+		        <option>Otro</option>
+		      </select>
+		    </div>
+		  </div> 
+		</form>
+		<div class="card-header">
+			<h3>Datos del Vehiculo</h3>
+		</div>
+		<form action="">
+			 <div class="form-row">
+			    <div class="form-group col-md-6">
+			      <label for="id_titular">Titular</label>
+			      <input type="text" class="form-control" id="id_titular">
+			    </div>
+			    <div class="form-group col-md-6">
+			      <label for="id_patente">Patente</label>
+			      <input type="text" class="form-control" id="id_patente">
+			    </div>
+		 	 </div>
+		 	 <div class="form-row">
+			    <div class="form-group col-md-4">
+			      <label for="id_marca">Marca</label>
+			      <input type="text" class="form-control" id="id_marca">
+			    </div>
+			    <div class="form-group col-md-4">
+			      <label for="id_modelo">Modelo</label>
+			      <input type="text" class="form-control" id="id_modelo">
+			    </div>
+			    <div class="form-group col-md-4">
+			      <label for="id_tipo">Tipo</label>
+			      <input type="text" class="form-control" id="id_tipo">
+			    </div>
+		 	 </div>
+		 	 <div class="form-row">
+			    <div class="form-group col-md-4">
+			      <label for="id_chasis">N° Chasis</label>
+			      <input type="number" class="form-control" id="id_chasis">
+			    </div>
+			    <div class="form-group col-md-4">
+			      <label for="id_motor">N° Motor</label>
+			      <input type="number" class="form-control" id="id_motor">
+			    </div>
+			    <div class="form-group col-md-4">
+			      <label for="id_color">Color</label>
+			      <input type="text" class="form-control" id="id_color">
+			    </div>
+		 	 </div>
+		</form>
+		<div class="card-header">
+			<h3>Localidad</h3>
+		</div>
+		<form action="">
+			<div class="form-row">
+			    <div class="form-group col-md-12">
+			      <label for="id_localidad">Nombre</label>
+			      <input type="text" class="form-control" id="id_localidad">
+			    </div>
+		</form>
+		  <div class="from-grup row">
+		  	<div class="col-lg-12 text-center">
+		  		<a href="#" class="btn btn-secondary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Cancelar</a>
+		  		<button type="submit" class="btn btn-primary">Guardar</button>
+		  	</div>
+		  </div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="webjars/popper.js/1.16.0/popper.min.js"></script>
+<script type="text/javascript" src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
