@@ -22,9 +22,9 @@ import org.springframework.stereotype.Component;
  * CLase Vehiculo representa un vehiculo
  *
  */
+@Component("unVehiculo")
 @Entity
 @Table(name="vehiculos")
-@Component("unVehiculo")
 public class Vehiculo implements Serializable {
 	
 	private static final long serialVersionUID=1L;

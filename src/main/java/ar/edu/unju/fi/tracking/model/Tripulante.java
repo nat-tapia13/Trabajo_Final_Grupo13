@@ -20,9 +20,9 @@ import org.springframework.stereotype.Component;
  * @author Dalila
  *
  */
+@Component("unTripulante")
 @Entity
 @Table(name="tripulantes")
-@Component("unTripulante")
 public class Tripulante implements Serializable{
 	
 	private static final long serialVersionUID=1L;
@@ -32,7 +32,7 @@ public class Tripulante implements Serializable{
 	 */
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="ID",length=10,nullable=false)
+	@Column(name="ID_TRIPULANTE",length=10,nullable=false)
 	private Long id;
 	
 	@Column

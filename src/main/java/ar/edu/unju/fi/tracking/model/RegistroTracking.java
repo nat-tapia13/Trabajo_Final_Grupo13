@@ -44,6 +44,7 @@ public class RegistroTracking implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID_REGISTRO")
 	private Long id;
 	
 	/**
@@ -77,12 +78,13 @@ public class RegistroTracking implements Serializable{
 	 */
 	@Autowired
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_localidad")
+	@JoinColumn(name = "ID_LOCALIDAD")
 	private Localidad localidad;
 	
 	/**
 	 * Representa el detalle del registro del Tracking
 	 */
+	@Column(name = "DETALLE_LUGAR")
 	private String detalleLugarRegistro;
 	
 	/**
@@ -201,12 +203,12 @@ public class RegistroTracking implements Serializable{
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-/*
+
 	//-----------------------------Método toString---------------------------------
 	@Override
 	public String toString() {
 		return "RegistroTracking [fechahora=" + fechaHora + ", vehiculo=" + vehiculo + ", tripulante=" + tripulantes
 				+ ", localidad=" + localidad + ", detalleLugarRegistro=" + detalleLugarRegistro + "]";
-	}*/
+	}
 
 }
