@@ -27,6 +27,11 @@ import org.springframework.stereotype.Component;
 public class Localidad implements Serializable {
 	
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7716326146968727998L;
+
+	/**
 	 * Representa el identificacion univoca de la localidad
 	 */
 	@Id
@@ -36,6 +41,7 @@ public class Localidad implements Serializable {
 	/**
 	 * Representa el nombre de una localidad o pueblo
 	 */
+	@Column(name = "NOMBRE")
 	private String nombre;
 	
 	/**

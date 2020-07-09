@@ -37,7 +37,11 @@ import org.springframework.stereotype.Component;
 @Table(name = "registros")
 public class RegistroTracking implements Serializable{
 	
-	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6935683459092160181L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -60,12 +64,12 @@ public class RegistroTracking implements Serializable{
 	 * Representa el o los tripulantes del vehiculo
 	 */
 	@Autowired
+	@ManyToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY)
 	@JoinTable(
-			name = "rel-registro-tripulante",
-			joinColumns = @JoinColumn(name = "ID_REGISTRO",nullable = false),
-			inverseJoinColumns = @JoinColumn(name = "ID_TRIPULANTE",nullable = false)
+			name = "REGISTRO_TRIPULANTE",
+			joinColumns = {@JoinColumn(name = "ID_REGISTRO",nullable = false)},
+			inverseJoinColumns = {@JoinColumn(name = "ID_TRIPULANTE",nullable = false)}
 			)
-	@ManyToMany(cascade = CascadeType.ALL , fetch = FetchType.EAGER)
 	private List<Tripulante> tripulantes;
 	
 	/**
@@ -86,7 +90,7 @@ public class RegistroTracking implements Serializable{
 	 */
 	@Autowired
 	@ManyToOne (fetch = FetchType.LAZY)
-	@JoinColumn (name ="usuario_id")
+	@JoinColumn (name ="ID_USUARIO")
 	private Usuario usuario;
 	
 	//--------------Constructores----------------
@@ -197,12 +201,12 @@ public class RegistroTracking implements Serializable{
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-
+/*
 	//-----------------------------Método toString---------------------------------
 	@Override
 	public String toString() {
 		return "RegistroTracking [fechahora=" + fechaHora + ", vehiculo=" + vehiculo + ", tripulante=" + tripulantes
 				+ ", localidad=" + localidad + ", detalleLugarRegistro=" + detalleLugarRegistro + "]";
-	}
+	}*/
 
 }

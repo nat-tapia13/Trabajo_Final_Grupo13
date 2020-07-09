@@ -10,7 +10,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -27,6 +26,11 @@ import org.springframework.stereotype.Component;
 @Table(name = "usuarios")
 public class Usuario implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7009702195326876064L;
+	
 	/*
 	 * ATRIBUTOS
 	 * 
@@ -72,7 +76,6 @@ public class Usuario implements Serializable {
 	 */
 	@Autowired
 	@OneToMany (mappedBy = "usuario", cascade = CascadeType.ALL)
-	@JoinColumn (name="registro_id")
 	private List<RegistroTracking> registro=new ArrayList<RegistroTracking>();
 	
 	/*
@@ -218,6 +221,8 @@ public class Usuario implements Serializable {
 	public void setRegistro(List<RegistroTracking> registro) {
 		this.registro = registro;
 	}
+	
+	//-----------------------------Método toString---------------------------------
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nombreUsuario=" + nombreUsuario + ", password=" + password + ", nombreReal="

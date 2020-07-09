@@ -26,12 +26,16 @@ import org.springframework.stereotype.Component;
 public class Tripulante implements Serializable{
 	
 	private static final long serialVersionUID=1L;
+	
 	/**
 	 * Representa la identificacion unica del tripulante
 	 */
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID",length=10,nullable=false)
+	private Long id;
+	
+	@Column
 	private String documento;
 	/**
 	 * Representa el apellido del tripulante
@@ -53,7 +57,7 @@ public class Tripulante implements Serializable{
 	 * Representa una lista de Registro Tracking perteneciente a este Tripulante
 	 */
 	@Autowired
-	@ManyToMany(mappedBy = "tripulante")
+	@ManyToMany(mappedBy = "tripulantes")
 	private List<RegistroTracking> registros = new ArrayList<RegistroTracking>();
 	
 	//---------------CONTRUCTORES-------------------
@@ -78,11 +82,24 @@ public class Tripulante implements Serializable{
 		this.nacionalidad = nacionalidad;
 	}
 	//-------------METODOS ACCESORES-----------------
+	
 	/**
 	 * @return the documento
 	 */
 	public String getDocumento() {
 		return documento;
+	}
+	/**
+	 * @return the id
+	 */
+	public Long getId() {
+		return id;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
 	}
 	/**
 	 * @param documento the documento to set

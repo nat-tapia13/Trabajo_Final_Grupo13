@@ -34,7 +34,7 @@ public class Vehiculo implements Serializable {
 	 */
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "ID")
+	@Column(name = "ID_VEHICULO")
 	private Long id;
 	
 	@Column(name="PATENTE",length=10,nullable=false)
