@@ -16,8 +16,9 @@
 					<li class="nav-item active"><a class="nav-link" href="#">Home
 					<span class="sr-only"> (current) </span>
 					</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Consultas</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Registros</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Consultas</a></li>
+					<li class="nav-item"><a class="nav-link" href="#"> </a></li>
 				</ul>
 				
 				<form class="form-inline my-2 my-lg-0">
@@ -30,7 +31,7 @@
 				<li class="nav-item"><a class="btn btn-outline-dark" href="a" th:href="@{/logout}">
 				<span th:text="${#authentication.getPrincipal().getUsername()}"></span>
 				</span>
-				<span>SALIR </span><span class="float rigth"><i class="fas fa-sign-out-alt"></i>
+				<span>Salir</span><span class="float rigth"><i class="fas fa-sign-out-alt"></i>
 				</span></a>
 				</li>
 				</ul>
