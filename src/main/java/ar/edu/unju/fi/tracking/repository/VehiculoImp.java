@@ -16,23 +16,25 @@ import ar.edu.unju.fi.tracking.model.Vehiculo;
  *
  */
 @Repository ("vehiculoImp")
-public class VehiculoImp implements IVehiculoDAO {
-	
+public class VehiculoImp /*implements IVehiculoDAO*/ {
+	/**
 	@Autowired
 	private Vehiculo vehiculo;
 	
 	public static Logger LOG =LoggerFactory.getLogger(ProyectoFinalGrupo13Application.class);
+	
 	/**
 	 * Este metodo Guarda un vehiculo en la DB
 	 */
+	/**
 	@Override
-	public void guardar() {
+	public void guardar(Vehiculo vehiculo) {
 		//accion ejecutada para guardar un objeto vheiculo en la BD
 		LOG.info("El numero de patente del vheiculo fue guardado"+vehiculo.getPatente());
 		
 	}
 	
-	/**
+	
 	 * Muestra una lista de vehiculos
 	 *	- por localidad y rango de fecha - hora
 	 * 	- por tripulante con ordenacion por fecha - hora
@@ -40,6 +42,7 @@ public class VehiculoImp implements IVehiculoDAO {
 	 *  @return el vehiculo que reune las condiciones
 	 */
 
+	/**
 	@Override
 	public List<Vehiculo> listarVehiculo() {
 		// 
@@ -49,11 +52,13 @@ public class VehiculoImp implements IVehiculoDAO {
 	 * Este metodo consulta los vehiculos en la BD
 	 * @return el vehiculo que reunas las condiciones de consulta
 	 */
+	
+	/**
 	@Override
 	public Vehiculo consultar() {
 		//se muestran todos los datos de vehiculo 
 		return vehiculo;
 	}
-
+*/
 
 }

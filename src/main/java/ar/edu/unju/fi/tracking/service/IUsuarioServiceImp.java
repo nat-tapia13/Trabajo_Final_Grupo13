@@ -51,12 +51,6 @@ public class IUsuarioServiceImp implements IUsuarioService{
 	}
 
 	@Override
-	public void guardar() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public Iterable<Usuario>listarTodos(){
 	//Metodo que devulve todos los usuarios logueados
 	return iusuario.findAll();

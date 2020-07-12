@@ -4,6 +4,10 @@
 package ar.edu.unju.fi.tracking.repository;
 
 import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import ar.edu.unju.fi.tracking.model.Vehiculo;
 
@@ -12,10 +16,10 @@ import ar.edu.unju.fi.tracking.model.Vehiculo;
  * @author Dalila
  *
  */
-public interface IVehiculoDAO {
+public interface IVehiculoDAO extends JpaRepository<Vehiculo, Long> {
 	
-	public List <Vehiculo> listarVehiculo();
-	public void guardar();
-	public Vehiculo consultar();
+	//@Autowired
+	//public List <Vehiculo> listarVehiculo();
+	//public void guardar();
 
 }

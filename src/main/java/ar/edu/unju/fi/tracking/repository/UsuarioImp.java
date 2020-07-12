@@ -5,6 +5,7 @@ package ar.edu.unju.fi.tracking.repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.lang.Iterable;
 
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
@@ -25,103 +26,25 @@ import ar.edu.unju.fi.tracking.model.Usuario;
 public class UsuarioImp implements IUsuarioDAO{
 
 	@Override
-	public <S extends Usuario> S save(S entity) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <S extends Usuario> Iterable<S> saveAll(Iterable<S> entities) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Optional<Usuario> findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean existsById(Long id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public Iterable<Usuario> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Iterable<Usuario> findAllById(Iterable<Long> ids) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public long count() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void deleteById(Long id) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void delete(Usuario entity) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteAll(Iterable<? extends Usuario> entities) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteAll() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void guardar() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Usuario modificar() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void eliminar() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Usuario consultar() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Optional<Usuario> findByeNombre(String nombreUsuario) {
+	public List<Usuario> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<Usuario> findAll(Sort sort) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Usuario> findAllById(Iterable<Long> ids) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <S extends Usuario> List<S> saveAll(Iterable<S> entities) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -175,15 +98,57 @@ public class UsuarioImp implements IUsuarioDAO{
 	}
 
 	@Override
-	public <S extends Usuario> boolean exists(Example<S> example) {
+	public <S extends Usuario> S save(S entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<Usuario> findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean existsById(Long id) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public <S extends Usuario> long count(Example<S> example) {
+	public long count() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public void deleteById(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(Usuario entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteAll(Iterable<? extends Usuario> entities) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteAll() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public <S extends Usuario> Optional<S> findOne(Example<S> example) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
@@ -193,11 +158,46 @@ public class UsuarioImp implements IUsuarioDAO{
 	}
 
 	@Override
-	public <S extends Usuario> Optional<S> findOne(Example<S> example) {
+	public <S extends Usuario> long count(Example<S> example) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public <S extends Usuario> boolean exists(Example<S> example) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void guardar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Usuario modificar() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
+	public void eliminar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Usuario consultar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<Usuario> findByeNombre(String nombreUsuario) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
 	

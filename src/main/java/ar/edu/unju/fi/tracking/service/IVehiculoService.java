@@ -4,6 +4,9 @@
 package ar.edu.unju.fi.tracking.service;
 
 import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import ar.edu.unju.fi.tracking.model.Vehiculo;
 
@@ -13,11 +16,14 @@ import ar.edu.unju.fi.tracking.model.Vehiculo;
  */
 public interface IVehiculoService {
 	
-	public void guardar();
+	@Autowired
+	public void guardar(Vehiculo vehiculo);
 	
+	@Autowired
 	public List <Vehiculo> listarVehiculo();
 
-	public Vehiculo consultar();
+	@Autowired
+	public Optional<Vehiculo> consultar(Long id);
 
 
 }
