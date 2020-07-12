@@ -169,35 +169,11 @@ public class UsuarioImp implements IUsuarioDAO{
 		return false;
 	}
 
-	@Override
-	public void guardar() {
+//	@Override
+//	public Optional<Usuario> findByeNombre(String nombreUsuario) {
 		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Usuario modificar() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void eliminar() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Usuario consultar() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Optional<Usuario> findByeNombre(String nombreUsuario) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//		return null;
+//	}
 
 }
 	

@@ -15,45 +15,36 @@ import ar.edu.unju.fi.tracking.repository.IUsuarioDAO;
  *
  */
 @Service
-public class IUsuarioServiceImp implements IUsuarioService{
+public class IUsuarioServiceImp implements IUsuarioService {
 
 	@Autowired
 	private IUsuarioDAO iusuario;
-	
-	@Override
-	public void guardar(Usuario unUsuario) {
-		
-	String pas = unUsuario.getPassword();
-		BCryptPasswordEncoder   bCryptPasswordEncoder  = new BCryptPasswordEncoder(8);
-		unUsuario.setPassword(bCryptPasswordEncoder.encode(pas));
-		iusuario.save(unUsuario);
-			
-	}
 
 	@Override
-	public Usuario modificar() {
-		
-		Usuario usuario = iusuario.modificar();
-		
-		return usuario;
+	public void guardar(Usuario unUsuario) {
+
+		String pas = unUsuario.getPassword();
+		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(8);
+		unUsuario.setPassword(bCryptPasswordEncoder.encode(pas));
+		iusuario.save(unUsuario);
+
 	}
 
 	@Override
 	public void eliminar() {
-		
+
+	}
+	
+	@Override
+	public Iterable<Usuario> listarTodos() {
+		// Metodo que devulve todos los usuarios logueados
+		return iusuario.findAll();
+
 	}
 
 	@Override
 	public Usuario consultar() {
-		
-	Usuario usuario = iusuario.consultar();
-	return usuario;
-	}
-
-	@Override
-	public Iterable<Usuario>listarTodos(){
-	//Metodo que devulve todos los usuarios logueados
-	return iusuario.findAll();
-	
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

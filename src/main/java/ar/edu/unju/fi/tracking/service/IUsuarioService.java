@@ -16,10 +16,9 @@ public interface IUsuarioService {
 	@Autowired
 	public void guardar(Usuario usuario);
 	
-	public Usuario modificar();
-	
 	public void eliminar();
 	
+	@Autowired
 	public Usuario consultar();
 	
 	@Autowired

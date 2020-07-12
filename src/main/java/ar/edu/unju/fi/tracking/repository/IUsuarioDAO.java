@@ -5,6 +5,7 @@ package ar.edu.unju.fi.tracking.repository;
 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import ar.edu.unju.fi.tracking.model.Usuario;
@@ -15,15 +16,8 @@ import ar.edu.unju.fi.tracking.model.Usuario;
  */
 
 public interface IUsuarioDAO extends JpaRepository<Usuario, Long>{
-	
-	public void guardar();
-	
-	public Usuario modificar();
-	
-	public void eliminar();
-	
-	public Usuario consultar();
 
-	Optional<Usuario> findByeNombre(String nombreUsuario);
+	//@Autowired
+	//public Optional<Usuario> findByeNombre(String nombreUsuario);
 
 }
