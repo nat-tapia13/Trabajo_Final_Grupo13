@@ -25,8 +25,7 @@ public class AutenticacionSuccessHandler implements AuthenticationSuccessHandler
 	private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
 	public void onAuthenticationSucess(HttpServletRequest request, HttpServletResponse response,
-			Authentication authentication) throws IOException, ServletException {
-
+		Authentication authentication) throws IOException, ServletException {
 		boolean tipoConsultor = false;
 		boolean tipoRegistrador = false;
 		boolean tipoAbm = false;
@@ -49,7 +48,7 @@ public class AutenticacionSuccessHandler implements AuthenticationSuccessHandler
 			redirectStrategy.sendRedirect(request, response, "/registro");
 		} else {
 			if (tipoConsultor) {
-				redirectStrategy.sendRedirect(request, response, "/fomularioConsul");
+				redirectStrategy.sendRedirect(request, response, "/consultas");
 			} else {
 				if (tipoAbm) {
 					redirectStrategy.sendRedirect(request, response, "/abm");
@@ -64,7 +63,6 @@ public class AutenticacionSuccessHandler implements AuthenticationSuccessHandler
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 			Authentication authentication) throws IOException, ServletException {
-		// TODO Auto-generated method stub
 		
 	}
 }

@@ -27,18 +27,17 @@ import ar.edu.unju.fi.tracking.repository.IUsuarioDAO;
 public class LoginUsuarioServiceImp implements UserDetailsService {
 
 	@Autowired
-	IUsuarioDAO iusuario;
+	IUsuarioDAO iUsuario;
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String apellidoReal)throws UsernameNotFoundException {
 
-		Usuario usuarioEncontrado = iusuario.findById(Long.parseLong(username))
-				.orElseThrow(() -> new UsernameNotFoundException("Login invalido"));
+		Usuario usuarioEncontrado = iUsuario.findByApellidoReal(apellidoReal).orElseThrow(() -> new UsernameNotFoundException("Login invalido"));
 		List<GrantedAuthority> tipos = new ArrayList<>();
 		GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(usuarioEncontrado.getTipoUsuario());
 		tipos.add(grantedAuthority);
 
-		UserDetails user = (UserDetails) new User(username, usuarioEncontrado.getPassword(), tipos);
+		UserDetails user = (UserDetails) new User(apellidoReal, usuarioEncontrado.getPassword(),tipos);
 		return user;
 
 	}

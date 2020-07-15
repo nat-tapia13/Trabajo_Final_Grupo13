@@ -6,9 +6,9 @@
 </head>
 <body>
 	<div class="container">
-		
-		<div th:insert="layout/header :: header"></div>
-
+		<header>
+			<h1>TRACKING JUJUY</h1>
+		</header>
 		<nav class="navbar navbar-inverse bg-invese navbar-toggleable-sm-md">
 			<button class="navbar-toggler navbar-toggler-rigth" type="button"
 				data-toggle="collapse" data-target="#navbarTogglerDemo01"
@@ -16,24 +16,15 @@
 				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<!-- Image and text -->
-			<a class="navbar-brand" href="#">
-			<img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30"
-			height="30" class="d-inline-block align-top" alt="" loading="lazy">
-			Bootstrap</a>
-		</nav>
-		
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 			<div class="navbar-nav">
-				<a class="nav-item nav-link active" href="#">Home</a>
-			    <a class="nav-item nav-link" href="#">Consultas</a>
-				<a class="nav-item nav-link" href="#">Registros</a>
-				<a class="nav-item nav-link disabled" href="#" tabindex="-1"
-				aria-disabled="true">Disabled</a>
+				<a class="nav-item nav-link active" href="home.htlm">Home</a> <a
+					class="nav-item nav-link" href="">Consultas</a> <a
+					class="nav-item nav-link" href="registro.html">Registro</a>
 			</div>
-		</div>			
- </div>
-    <script type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
+		</div>
+	</div>
+	<script type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
 	<script type="text/javascript" src="webjars/popper.js/1.16.0/popper.min.js"></script>
 	<script type="text/javascript" src="webjars/bootstrap/4.5.0/css/bootstrap.min.css"></script>
 </body>

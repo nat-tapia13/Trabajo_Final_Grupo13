@@ -2,14 +2,15 @@ package ar.edu.unju.fi.tracking.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainController {
 
-	@RequestMapping("/logiin")
+	@GetMapping({"/","/loguin"})
 	public String ingresar(Model model) {
-	return "logiin" ;
+	return "loguin" ;
 	
-}
+ }
+	
 }

@@ -2,8 +2,7 @@
  * 
  */
 package ar.edu.unju.fi.tracking.service;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.Optional;
 
 import ar.edu.unju.fi.tracking.model.Usuario;
 
@@ -13,15 +12,17 @@ import ar.edu.unju.fi.tracking.model.Usuario;
  */
 public interface IUsuarioService {
 	
-	@Autowired
-	public void guardar(Usuario usuario);
+	public void crear(Usuario unUsuario);
 	
-	public void eliminar();
+	public void eliminar(Usuario usuario);
 	
-	@Autowired
-	public Usuario consultar();
+	public Usuario modificar();
 	
-	@Autowired
 	public Iterable<Usuario>listarTodos();
 
+	public Optional <Usuario> encontrarUsuario(Long id);
+
+	public Usuario encontrarUsuarioNombre(Usuario usuario) throws Exception;
+
+	public String redirigirUsuario(Usuario usuario);
 }

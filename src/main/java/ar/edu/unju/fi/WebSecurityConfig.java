@@ -22,7 +22,7 @@ import ar.edu.unju.fi.tracking.service.LoginUsuarioServiceImp;
 public class WebSecurityConfig extends  WebSecurityConfigurerAdapter{
  
 	String[] resources = new    String[]{
-    "/include/**" , "/css/**" , "/icons/**" , "/img/**" , "/js/**" , "/layer/**" , "/webjars/**","/"
+    "/include/**" , "/css/**" , "/icons/**" , "/img/**" , "/js/**" , "/layer/**" , "/webjars/**","/layout/**,"
 
 };
 
@@ -40,17 +40,17 @@ protected void configure(HttpSecurity http) throws Exception{
      .and()
    
    .formLogin()
-   .loginPage("/loginUser")
+   .loginPage("/loguin")
    .permitAll()
    .successHandler(autenticacion)
-   .failureUrl("/loginUser?error=true")
-   .usernameParameter("nombreUsuario")
+   .failureUrl("/loguin?error=true")
+   .usernameParameter("username")
    .passwordParameter("password")
    .and()
 
 .logout()
  .permitAll()
- .logoutSuccessUrl("/loginUser?logout");
+ .logoutSuccessUrl("/loguin?logout");
 
 }
 //creamos una variable de tipo BCryptPasswordEncoder que permite encriptar una clave ingresada
@@ -70,7 +70,7 @@ LoginUsuarioServiceImp userDetailsService;
 
 @Autowired
 public void configureGlobal(AuthenticationManagerBuilder  auth) throws Exception {
- auth. userDetailsService( userDetailsService).passwordEncoder(passwordEncoder());
+ auth. userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
  
  }
 
