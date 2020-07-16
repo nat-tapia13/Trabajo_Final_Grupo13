@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<link th:rel="stylesheet" type="text/css" th:href="@{webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
+
+<script th:src="@{webjars/jquery/3.5.1/jquery.min.js}"type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
+<script th:src="@{webjars/popper.js/1.16.0/popper.min.js}"type="text/javascript" src="webjars/popper.js/1.16.0/popper.min.js"></script>
+<script th:src="@{webjars/bootstrap/4.5.0/js/bootstrap.min.js}"type="text/javascript" src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <meta charset="ISO-8859-1">
 <title>INICIO</title>
 </head>
 <body>
 	<div class="container">
-		<header>
-			<h1>TRACKING JUJUY</h1>
-		</header>
+		<div th:insert="layout/header :: header"></div>
+		
 		<nav class="navbar navbar-inverse bg-invese navbar-toggleable-sm-md">
 			<button class="navbar-toggler navbar-toggler-rigth" type="button"
 				data-toggle="collapse" data-target="#navbarTogglerDemo01"
@@ -19,13 +23,11 @@
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 			<div class="navbar-nav">
 				<a class="nav-item nav-link active" href="home.htlm">Home</a> <a
-					class="nav-item nav-link" href="">Consultas</a> <a
+					class="nav-item nav-link" href="#">Consultas</a> <a
 					class="nav-item nav-link" href="registro.html">Registro</a>
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
-	<script type="text/javascript" src="webjars/popper.js/1.16.0/popper.min.js"></script>
-	<script type="text/javascript" src="webjars/bootstrap/4.5.0/css/bootstrap.min.css"></script>
+	<div th:insert="layout/footer :: footer"></div>
 </body>
 </html>

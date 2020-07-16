@@ -9,7 +9,7 @@ import ar.edu.unju.fi.tracking.model.Tripulante;
  * @author Dalila
  *
  */
-public interface ITripulanteDAO extends JpaRepository<Tripulante, Long> {
+public interface ITripulanteDAO extends JpaRepository<Tripulante,Long> {
 	//public void guardar();
 	//public Tripulante consultar();
 

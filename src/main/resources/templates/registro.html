@@ -1,36 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
+<link th:rel="stylesheet" type="text/css" th:href="@{webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
+
+<script th:src="@{webjars/jquery/3.5.1/jquery.min.js}"type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
+<script th:src="@{webjars/popper.js/1.16.0/popper.min.js}"type="text/javascript" src="webjars/popper.js/1.16.0/popper.min.js"></script>
+<script th:src="@{webjars/bootstrap/4.5.0/js/bootstrap.min.js}"type="text/javascript" src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <meta charset="ISO-8859-1">
 <title>Registro</title>
-<link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.0/css/bootstrap.min.css">
-</head>
-<body class="container">
 
-<h1>Registro de Veiculos</h1>
-	<div>
+</head>
+<body class="container" role="tablist">
+	<div th:insert="layout/header :: header"></div>
+	
+	<ul class="nav nav-tabs">
+	  <li class="nav-item">
+	    <a id="formulario-tab" class="nav-link active" href="#formulario" data-toggle="tab"
+	    role="tab" aria-controls="formulario" aria-selected="true">Formulario de Registro</a>
+	  </li>
+	  <li class="nav-item">
+	    <a id="tabla_registro" class="nav-link" href="#tabla" data-toggle="tab"
+	    role="tab" aria-controls="tabla" aria-selected="false">Tabla de Registro</a>
+	  </li>	  
+	</ul>
+	
+	<div class="tab-content">
+		<div class="tab-pane fade show active" id="formulario" role="tabpanel" aria-labelledby="formulario-tab">
+			<form th:action="@{/save}" th:object=${registro} method="POST">
 		<div class="card-header">
-			<h3>Datos del Tripulante</h3>
+			<h3 class="text-center">Registro de Veiculos</h3>
 		</div>
-		<form>
+		<div class="form-row">
+			<div class="form-group col-md-8">
+    			<label for="exampleFormControlTextarea1">Detalle</label>
+    			<textarea th:field="*{detalleLugarRegistro}" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    			
+ 		 	</div>
+ 		 	<div class="form-group col-md-4" >
+ 		 		<label for="fecha">Fecha</label>
+ 		 		<input th:field="*{fechaHora}"size="16"  type="datetime" name="event_datetime" class="form-control" id="form_datetime" >
+ 		 	</div>
+		</div>
+			
+	
+		<div class="card-header">
+			<h5>Datos del Tripulante</h5>
+		</div>
+		
 		  <div class="form-row">
 		    <div class="form-group col-md-6">
 		      <label for="id_nombre">Nombre</label>
-		      <input type="text" class="form-control" id="id_nombre">
+		      <input th:field="*{tripulante.nombres}"type="text"  class="form-control" id="id_nombre">
 		    </div>
 		    <div class="form-group col-md-6">
 		      <label for="id_apellido">Apellido</label>
-		      <input type="text" class="form-control" id="id_apellido">
+		      <input th:field="*{tripulante.apellido}"type="text" class="form-control" id="id_apellido">
 		    </div>
 		  </div>
 		  <div class="form-row">
 		    <div class="form-group col-md-6">
 		      <label for="id_dni">DNI</label>
-		      <input type="number" class="form-control" id="id_dni">
+		      <input th:field="*{tripulante.documento}"type="number" class="form-control" id="id_dni">
 		    </div>
 		    <div class="form-group col-md-6">
 		      <label for="id_nacionalidad">Nacionalidad</label>
-		      <select id="id_nacionalidad" class="form-control">
+		      <select th:field="*{tripulante.nacionalidad}" id="id_nacionalidad" class="form-control">
 		        <option selected>seleccionar</option>
 		        <option>Argentina</option>
 		        <option>Brasil</option>
@@ -43,67 +77,110 @@
 		      </select>
 		    </div>
 		  </div> 
-		</form>
+		<!--  </form>-->
 		<div class="card-header">
-			<h3>Datos del Vehiculo</h3>
+			<h5>Datos del Vehiculo</h5>
 		</div>
-		<form action="">
+		<!--  <form action="">-->
 			 <div class="form-row">
 			    <div class="form-group col-md-6">
 			      <label for="id_titular">Titular</label>
-			      <input type="text" class="form-control" id="id_titular">
+			      <input th:field="*{vehiculo.titular}" type="text" class="form-control" id="id_titular">
 			    </div>
 			    <div class="form-group col-md-6">
 			      <label for="id_patente">Patente</label>
-			      <input type="text" class="form-control" id="id_patente">
+			      <input th:field="*{vehiculo.patente}" type="text" class="form-control" id="id_patente">
 			    </div>
 		 	 </div>
 		 	 <div class="form-row">
 			    <div class="form-group col-md-4">
 			      <label for="id_marca">Marca</label>
-			      <input type="text" class="form-control" id="id_marca">
+			      <input th:field="*{vehiculo.marca}" type="text" class="form-control" id="id_marca">
 			    </div>
 			    <div class="form-group col-md-4">
 			      <label for="id_modelo">Modelo</label>
-			      <input type="text" class="form-control" id="id_modelo">
+			      <input th:field="*{vehiculo.modelo}" type="text" class="form-control" id="id_modelo">
 			    </div>
 			    <div class="form-group col-md-4">
 			      <label for="id_tipo">Tipo</label>
-			      <input type="text" class="form-control" id="id_tipo">
+			      <input th:field="*{vehiculo.tipo}" type="text" class="form-control" id="id_tipo">
 			    </div>
 		 	 </div>
 		 	 <div class="form-row">
 			    <div class="form-group col-md-4">
-			      <label for="id_chasis">N° Chasis</label>
-			      <input type="number" class="form-control" id="id_chasis">
+			      <label for="id_chasis">Numero de Chasis</label>
+			      <input th:field="*{vehiculo.numeroChasis}" type="number" class="form-control" id="id_chasis">
 			    </div>
 			    <div class="form-group col-md-4">
-			      <label for="id_motor">N° Motor</label>
-			      <input type="number" class="form-control" id="id_motor">
+			      <label for="id_motor">Numero de Motor</label>
+			      <input th:field="*{vehiculo.numeroMotor}" type="number" class="form-control" id="id_motor">
 			    </div>
 			    <div class="form-group col-md-4">
 			      <label for="id_color">Color</label>
-			      <input type="text" class="form-control" id="id_color">
+			      <input th:field="*{vehiculo.color}" type="text" class="form-control" id="id_color">
 			    </div>
 		 	 </div>
-		</form>
+		<!--  </form>-->
 		<div class="card-header">
-			<h3>Localidad</h3>
+			<h5>Localidad</h5>
 		</div>
-		<form action="">
+		<!--  <form action="">-->
 			<div class="form-row">
 			    <div class="form-group col-md-12">
 			      <label for="id_localidad">Nombre</label>
-			      <input type="text" class="form-control" id="id_localidad">
+			      <input th:field="*{localidad.nombre}" type="text" class="form-control" id="id_localidad">
 			    </div>
-		</form>
+			 </div>   
+		<!--  </form>-->
 		  <div class="from-grup row">
 		  	<div class="col-lg-12 text-center">
-		  		<a href="#" class="btn btn-secondary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Cancelar</a>
+		  		<a href="#" class="btn btn-secondary"  role="button" aria-disabled="true">Cancelar</a>
 		  		<button type="submit" class="btn btn-primary">Guardar</button>
 		  	</div>
 		  </div>
+		  </form>
+		</div>
+	
+		<div class="tab-pane fade" id="tabla" role="tabpanel" aria-labelledby="tabla_registro">
+			<div class="card">
+				<div class="card-header">
+					<h3 class="text-center">Registro de Veiculos</h3>
+				</div>
+				<div class="card-body">
+				<table class="table table-bordered table-striped">
+				  <thead class="thead-dark">
+				    <tr>
+				      <th scope="col">ID Registro</th>
+				      <th scope="col">Nombre Tripulante</th>
+				      <th scope="col">Nombre Localidad</th>
+				      <th scope="col">Modelo Vehiculo</th>
+				      <th scope="col">Numero de Chasis</th>
+				      <th scope="col">Nombre Usuario</th>
+				      <th scope="col">Fecha y Hora</th>
+				      <th scope="col">Editar</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr th:each="registro:${registros}">
+				  <!--   <th scope="row">hola</th> -->
+				      <td th:text="${registro.id}"></td>
+				      <td th:text="${registro.tripulante.nombre}"></td>
+				      <td th:text="${registro.localidad.nombre}"></td>
+				      <td th:text="${registro.vehiculo.modelo}"></td>
+				      <td th:text="${registro.vehiculo.numeroChasis}"></td>
+				      <td th:text="${registro.usuario.nombreReal}"></td>
+				      <td th:text="${registro.fechaHora}"></td>
+				      <td ></td>
+				    </tr>				    
+				  </tbody>
+				</table>
+			</div>
+		</div>
 	</div>
+		
+	</div>
+	
+	
 
 
 
@@ -112,12 +189,9 @@
 
 
 
+	<div th:insert="layout/footer :: footer"></div>
 
 
-
-<script type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript" src="webjars/popper.js/1.16.0/popper.min.js"></script>
-<script type="text/javascript" src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
 </body>
 </html>

@@ -26,15 +26,15 @@
 				
 				<form class="form-inline my-2 my-lg-0">
 					<input class="form-control mr-sm-2" type="search"
-						placeholder="Search">
+						placeholder="Buscar">
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-						Search</button>
+						Buscar</button>
 				</form>
 				<ul class="navbar-nav mt-2 mt-lg-0" >
 				<li class="nav-item"><a class="btn btn-outline-dark" href="a" th:href="@{/logout}">
 				<!-- Para incorporar el nombre del usuario -->
 				<span th:text="${#authentication.getPrincipal().getUsername()}"></span>
-				<span> Salir </span><span class="float rigth"><i class="fas fa-sign-out-alt"></i>
+				<span > Salir </span><span class="float rigth"><i class="fas fa-sign-out-alt"></i>
 				</span></a>
 				</li>
 				</ul>
