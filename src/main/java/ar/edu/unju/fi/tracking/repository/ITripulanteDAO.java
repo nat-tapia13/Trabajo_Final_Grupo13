@@ -1,5 +1,7 @@
 package ar.edu.unju.fi.tracking.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import ar.edu.unju.fi.tracking.model.Tripulante;
 
 /**
@@ -7,8 +9,8 @@ import ar.edu.unju.fi.tracking.model.Tripulante;
  * @author Dalila
  *
  */
-public interface ITripulanteDAO {
-	public void guardar();
-	public Tripulante consultar();
+public interface ITripulanteDAO extends JpaRepository<Tripulante, Long> {
+	//public void guardar();
+	//public Tripulante consultar();
 
 }

@@ -1,8 +1,12 @@
 package ar.edu.unju.fi.tracking.repository;
 
-public interface IRegistroTrackingDAO {
+import org.springframework.data.jpa.repository.JpaRepository;
 
-	public void guardadDatos();
+import ar.edu.unju.fi.tracking.model.RegistroTracking;
+
+public interface IRegistroTrackingDAO extends JpaRepository<RegistroTracking, Long> {
+
+	//public void guardadDatos();
 	
 	
 }
