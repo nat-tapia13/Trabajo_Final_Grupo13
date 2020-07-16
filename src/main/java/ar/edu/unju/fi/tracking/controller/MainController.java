@@ -12,5 +12,9 @@ public class MainController {
 	return "loguin" ;
 	
  }
-	
+	@GetMapping ("/index")
+	public String seguir(Model model) {
+			return "index" ;
+		
+	}
 }

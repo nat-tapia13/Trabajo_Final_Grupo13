@@ -25,7 +25,7 @@ import ar.edu.unju.fi.tracking.service.ILocalidadService;
 @Controller
 @RequestMapping
 public class LocalidadController {
-	
+	/**
 	@Autowired
 	ILocalidadService localidadService;
 	
@@ -63,5 +63,5 @@ public class LocalidadController {
 		
 		return null;
 	}
-
+**/
 }
