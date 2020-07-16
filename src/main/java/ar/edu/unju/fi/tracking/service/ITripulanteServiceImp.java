@@ -4,7 +4,7 @@
 package ar.edu.unju.fi.tracking.service;
 
 import ar.edu.unju.fi.tracking.model.Tripulante;
-import ar.edu.unju.fi.tracking.repository.ITripulanteDAO;
+
 
 /**
  * @author Ema
@@ -12,21 +12,16 @@ import ar.edu.unju.fi.tracking.repository.ITripulanteDAO;
  */
 public class ITripulanteServiceImp implements ITripulanteService{
 
-	private ITripulanteDAO itripulante;
-	
 	@Override
 	public void guardar() {
-
-		itripulante.guardar();
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public Tripulante consultar() {
-		
-		Tripulante tripulante = itripulante.consultar();
-		
-		return tripulante;
+		// TODO Auto-generated method stub
+		return null;
 	}
-
+	
 }

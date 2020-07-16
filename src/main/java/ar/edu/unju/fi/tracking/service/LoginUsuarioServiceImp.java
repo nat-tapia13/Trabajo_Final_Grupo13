@@ -30,14 +30,14 @@ public class LoginUsuarioServiceImp implements UserDetailsService {
 	IUsuarioDAO iUsuario;
 
 	@Override
-	public UserDetails loadUserByUsername(String apellidoReal)throws UsernameNotFoundException {
+	public UserDetails loadUserByUsername(String nombreUsuario)throws UsernameNotFoundException {
 
-		Usuario usuarioEncontrado = iUsuario.findByApellidoReal(apellidoReal).orElseThrow(() -> new UsernameNotFoundException("Login invalido"));
+		Usuario usuarioEncontrado = iUsuario.findBynombreUsuario(nombreUsuario).orElseThrow(() -> new UsernameNotFoundException("Login invalido"));
 		List<GrantedAuthority> tipos = new ArrayList<>();
 		GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(usuarioEncontrado.getTipoUsuario());
 		tipos.add(grantedAuthority);
 
-		UserDetails user = (UserDetails) new User(apellidoReal, usuarioEncontrado.getPassword(),tipos);
+		UserDetails user = (UserDetails) new User(nombreUsuario, usuarioEncontrado.getPassword(),tipos);
 		return user;
 
 	}
