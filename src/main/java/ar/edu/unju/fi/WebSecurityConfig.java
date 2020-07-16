@@ -42,9 +42,9 @@ protected void configure(HttpSecurity http) throws Exception{
    .formLogin()
    .loginPage("/loguin")
    .permitAll()
-   .successHandler(autenticacion)
+   .defaultSuccessUrl("/index")
    .failureUrl("/loguin?error=true")
-   .usernameParameter("username")
+   .usernameParameter("nombreUsuario")
    .passwordParameter("password")
    .and()
 
@@ -60,7 +60,7 @@ BCryptPasswordEncoder  bCrypPasswordEncoder;
 
 @Bean
 public BCryptPasswordEncoder  passwordEncoder() {
-bCrypPasswordEncoder =  new BCryptPasswordEncoder(8);
+bCrypPasswordEncoder =  new BCryptPasswordEncoder(4);
 return   bCrypPasswordEncoder;
 
 }
