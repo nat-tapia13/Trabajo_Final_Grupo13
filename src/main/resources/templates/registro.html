@@ -27,118 +27,134 @@
 	<div class="tab-content">
 		<div class="tab-pane fade show active" id="formulario" role="tabpanel" aria-labelledby="formulario-tab">
 			<form th:action="@{/save}" th:object=${registro} method="POST">
-		<div class="card-header">
-			<h3 class="text-center">Registro de Veiculos</h3>
-		</div>
-		<div class="form-row">
-			<div class="form-group col-md-8">
-    			<label for="exampleFormControlTextarea1">Detalle</label>
-    			<textarea th:field="*{detalleLugarRegistro}" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-    			
- 		 	</div>
- 		 	<div class="form-group col-md-4" >
- 		 		<label for="fecha">Fecha</label>
- 		 		<input th:field="*{fechaHora}"size="16"  type="datetime" name="event_datetime" class="form-control" id="form_datetime" >
- 		 	</div>
-		</div>
-			
-	
-		<div class="card-header">
-			<h5>Datos del Tripulante</h5>
-		</div>
-		
-		  <div class="form-row">
-		    <div class="form-group col-md-6">
-		      <label for="id_nombre">Nombre</label>
-		      <input th:field="*{tripulante.nombres}"type="text"  class="form-control" id="id_nombre">
-		    </div>
-		    <div class="form-group col-md-6">
-		      <label for="id_apellido">Apellido</label>
-		      <input th:field="*{tripulante.apellido}"type="text" class="form-control" id="id_apellido">
-		    </div>
-		  </div>
-		  <div class="form-row">
-		    <div class="form-group col-md-6">
-		      <label for="id_dni">DNI</label>
-		      <input th:field="*{tripulante.documento}"type="number" class="form-control" id="id_dni">
-		    </div>
-		    <div class="form-group col-md-6">
-		      <label for="id_nacionalidad">Nacionalidad</label>
-		      <select th:field="*{tripulante.nacionalidad}" id="id_nacionalidad" class="form-control">
-		        <option selected>seleccionar</option>
-		        <option>Argentina</option>
-		        <option>Brasil</option>
-		        <option>Chile</option>
-		        <option>Peru</option>
-		        <option>Bolivia</option>
-		        <option>Uruguay</option>
-		        <option>Paraguay</option>
-		        <option>Otro</option>
-		      </select>
-		    </div>
-		  </div> 
-		<!--  </form>-->
-		<div class="card-header">
-			<h5>Datos del Vehiculo</h5>
-		</div>
-		<!--  <form action="">-->
-			 <div class="form-row">
-			    <div class="form-group col-md-6">
-			      <label for="id_titular">Titular</label>
-			      <input th:field="*{vehiculo.titular}" type="text" class="form-control" id="id_titular">
-			    </div>
-			    <div class="form-group col-md-6">
-			      <label for="id_patente">Patente</label>
-			      <input th:field="*{vehiculo.patente}" type="text" class="form-control" id="id_patente">
-			    </div>
-		 	 </div>
-		 	 <div class="form-row">
-			    <div class="form-group col-md-4">
-			      <label for="id_marca">Marca</label>
-			      <input th:field="*{vehiculo.marca}" type="text" class="form-control" id="id_marca">
-			    </div>
-			    <div class="form-group col-md-4">
-			      <label for="id_modelo">Modelo</label>
-			      <input th:field="*{vehiculo.modelo}" type="text" class="form-control" id="id_modelo">
-			    </div>
-			    <div class="form-group col-md-4">
-			      <label for="id_tipo">Tipo</label>
-			      <input th:field="*{vehiculo.tipo}" type="text" class="form-control" id="id_tipo">
-			    </div>
-		 	 </div>
-		 	 <div class="form-row">
-			    <div class="form-group col-md-4">
-			      <label for="id_chasis">Numero de Chasis</label>
-			      <input th:field="*{vehiculo.numeroChasis}" type="number" class="form-control" id="id_chasis">
-			    </div>
-			    <div class="form-group col-md-4">
-			      <label for="id_motor">Numero de Motor</label>
-			      <input th:field="*{vehiculo.numeroMotor}" type="number" class="form-control" id="id_motor">
-			    </div>
-			    <div class="form-group col-md-4">
-			      <label for="id_color">Color</label>
-			      <input th:field="*{vehiculo.color}" type="text" class="form-control" id="id_color">
-			    </div>
-		 	 </div>
-		<!--  </form>-->
-		<div class="card-header">
-			<h5>Localidad</h5>
-		</div>
-		<!--  <form action="">-->
-			<div class="form-row">
-			    <div class="form-group col-md-12">
-			      <label for="id_localidad">Nombre</label>
-			      <input th:field="*{localidad.nombre}" type="text" class="form-control" id="id_localidad">
-			    </div>
-			 </div>   
-		<!--  </form>-->
-		  <div class="from-grup row">
-		  	<div class="col-lg-12 text-center">
-		  		<a href="#" class="btn btn-secondary"  role="button" aria-disabled="true">Cancelar</a>
-		  		<button type="submit" class="btn btn-primary">Guardar</button>
-		  	</div>
-		  </div>
-		  </form>
+				<div class="card-header">
+					<h3 class="text-center">Registro de Veiculos</h3>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-8">
+						<label for="exampleFormControlTextarea1">Detalle</label>
+						<textarea th:field="*{detalleLugarRegistro}" class="form-control"
+							id="exampleFormControlTextarea1" rows="3"></textarea>
+
+					</div>
+					<div class="form-group col-md-4">
+						<label for="fecha">Fecha</label> <input th:field="*{fechaHora}"
+							size="16" type="datetime" name="event_datetime"
+							class="form-control" id="form_datetime">
+					</div>
+				</div>
+
+
+				<div class="card-header">
+					<h5>Datos del Tripulante</h5>
+				</div>
+
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="id_nombre">Nombre</label> <input
+							th:field="*{tripulantes.nombres}" type="text"
+							class="form-control" id="id_nombre">
+					</div>
+					<div class="form-group col-md-6">
+						<label for="id_apellido">Apellido</label> <input
+							th:field="*{tripulantes.apellido}" type="text"
+							class="form-control" id="id_apellido">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="id_dni">DNI</label> <input
+							th:field="*{tripulantes.documento}" type="number"
+							class="form-control" id="id_dni">
+					</div>
+					<div class="form-group col-md-6">
+						<label for="id_nacionalidad">Nacionalidad</label> <select
+							th:field="*{tripulantes.nacionalidad}" id="id_nacionalidad"
+							class="form-control">
+							<option selected>seleccionar</option>
+							<option>Argentina</option>
+							<option>Brasil</option>
+							<option>Chile</option>
+							<option>Peru</option>
+							<option>Bolivia</option>
+							<option>Uruguay</option>
+							<option>Paraguay</option>
+							<option>Otro</option>
+						</select>
+					</div>
+				</div>
+				<!--  </form>-->
+				<div class="card-header">
+					<h5>Datos del Vehiculo</h5>
+				</div>
+				<!--  <form action="">-->
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="id_titular">Titular</label> <input
+							th:field="*{vehiculo.titular}" type="text" class="form-control"
+							id="id_titular">
+					</div>
+					<div class="form-group col-md-6">
+						<label for="id_patente">Patente</label> <input
+							th:field="*{vehiculo.patente}" type="text" class="form-control"
+							id="id_patente">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-4">
+						<label for="id_marca">Marca</label> <input
+							th:field="*{vehiculo.marca}" type="text" class="form-control"
+							id="id_marca">
+					</div>
+					<div class="form-group col-md-4">
+						<label for="id_modelo">Modelo</label> <input
+							th:field="*{vehiculo.modelo}" type="text" class="form-control"
+							id="id_modelo">
+					</div>
+					<div class="form-group col-md-4">
+						<label for="id_tipo">Tipo</label> <input
+							th:field="*{vehiculo.tipo}" type="text" class="form-control"
+							id="id_tipo">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-4">
+						<label for="id_chasis">Numero de Chasis</label> <input
+							th:field="*{vehiculo.numeroChasis}" type="number"
+							class="form-control" id="id_chasis">
+					</div>
+					<div class="form-group col-md-4">
+						<label for="id_motor">Numero de Motor</label> <input
+							th:field="*{vehiculo.numeroMotor}" type="number"
+							class="form-control" id="id_motor">
+					</div>
+					<div class="form-group col-md-4">
+						<label for="id_color">Color</label> <input
+							th:field="*{vehiculo.color}" type="text" class="form-control"
+							id="id_color">
+					</div>
+				</div>
+				<!--  </form>-->
+				<div class="card-header">
+					<h5>Localidad</h5>
+				</div>
+				<!--  <form action="">-->
+				<div class="form-row">
+					<div class="form-group col-md-12">
+						<label for="id_localidad">Nombre</label> <input
+							th:field="*{localidad.nombre}" type="text" class="form-control"
+							id="id_localidad">
+					</div>
+				</div>
+				<!--  </form>-->
+				<div class="from-grup row">
+					<div class="col-lg-12 text-center">
+						<a href="#" class="btn btn-secondary" role="button"
+							aria-disabled="true">Cancelar</a>
+						<button type="submit" class="btn btn-primary">Guardar</button>
+					</div>
+				</div>
+			</form>
 		</div>
 	
 		<div class="tab-pane fade" id="tabla" role="tabpanel" aria-labelledby="tabla_registro">
@@ -178,7 +194,7 @@
 		</div>
 	</div>
 		
-	</div>
+</div>
 	
 	
 

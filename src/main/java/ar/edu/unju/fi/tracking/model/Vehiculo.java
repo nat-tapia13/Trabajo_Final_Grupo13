@@ -86,7 +86,7 @@ public class Vehiculo implements Serializable {
 	 * Representa una lista de registroTracking asociadas a este vehivulo
 	 */
 	@Autowired
-	@OneToMany(mappedBy = "vehiculo" , cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "vehiculo",cascade = CascadeType.ALL)
 	private List<RegistroTracking> registros = new ArrayList<RegistroTracking>();
 
 	//----------------------Constructores de la clase------------------------

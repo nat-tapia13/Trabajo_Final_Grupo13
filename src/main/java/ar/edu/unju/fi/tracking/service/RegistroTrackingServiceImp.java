@@ -43,7 +43,8 @@ public class RegistroTrackingServiceImp implements IRegistroTrackingService{
 
 	@Override
 	public void guardarDatos(RegistroTracking registro) {
-		// TODO Auto-generated method stub
+		
+		iregistro.save(registro);
 		
 	}
 
@@ -51,6 +52,12 @@ public class RegistroTrackingServiceImp implements IRegistroTrackingService{
 	public Optional<RegistroTracking> listarTripulantes(Long id) {
 		// TODO Auto-generated method stub
 		return iregistro.findById(id);
+	}
+
+	@Override
+	public List<RegistroTracking> listar() {
+		// TODO Auto-generated method stub
+		return iregistro.findAll();
 	}
 
 }

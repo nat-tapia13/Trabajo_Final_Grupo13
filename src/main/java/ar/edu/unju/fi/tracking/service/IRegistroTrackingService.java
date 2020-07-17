@@ -23,5 +23,7 @@ public interface IRegistroTrackingService {
 	public List<RegistroTracking> listarRegistrosPorPatente(String patente_tripulante);
 	
 	public Optional<RegistroTracking> listarTripulantes(Long id);
+	
+	public List<RegistroTracking> listar();
 
 }

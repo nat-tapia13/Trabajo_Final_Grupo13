@@ -56,7 +56,7 @@
 						<td th:text="${registro.id}"></td>
 						<td th:text="${registro.localidad.nombre}"></td>
 						<td th:text="${registro.detalleLugarRegistro}"></td>
-						<td th:text="${registro.fechaHora}"></td>
+						<td th:text="${#temporals.format(registro.fechaHora,'dd/MM/yyyy hh:mm')}"></td>
 					</tr>
 				</tbody>
 			</table>

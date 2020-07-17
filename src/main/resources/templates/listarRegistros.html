@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:rel="stylesheet" type="text/css" th:href="@{webjars/bootstrap/4.5.0/css/bootstrap.min.css}">
+
+<script th:src="@{webjars/jquery/3.5.1/jquery.min.js}"type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
+<script th:src="@{webjars/popper.js/1.16.0/popper.min.js}"type="text/javascript" src="webjars/popper.js/1.16.0/popper.min.js"></script>
+<script th:src="@{webjars/bootstrap/4.5.0/js/bootstrap.min.js}"type="text/javascript" src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<meta charset="ISO-8859-1">
+<title>Registro</title>
+
+</head>
+<body class="container" role="tablist">
+	<div th:insert="layout/header :: header"></div>
+
+	<div class="tab-content">
+
+			<div class="card">
+				<div class="card-header">
+					<h3 class="text-center">Listas Registros</h3>
+				</div>
+				<div>
+					<a th:href="@{/nuevoRegistro}" class="btn btn-primary">Nuevo
+						Registro</a>
+				</div>
+
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th scope="col">ID Registro</th>
+								<th scope="col">Nombre Tripulante</th>
+								<th scope="col">Nombre Localidad</th>
+								<th scope="col">Modelo Vehiculo</th>
+								<th scope="col">Numero de Chasis</th>
+								<th scope="col">Fecha y Hora</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="registro:${registros}">
+								<!--   <th scope="row">hola</th> -->
+								<td th:text="${registro.id}"></td>
+								<td th:text="${registro.tripulantes}">
+								<td th:text="${registro.localidad.nombre}"></td>
+								<td th:text="${registro.vehiculo.modelo}"></td>
+								<td th:text="${registro.vehiculo.numeroChasis}"></td>
+								<td th:text="${#temporals.format(registro.fechaHora,'dd/MM/yyyy hh:mm')}"></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+	</div>
+
+	<div th:insert="layout/footer :: footer"></div>
+
+</body>
+</html>

@@ -51,4 +51,10 @@ public class IRegistroTrackingServiceImp implements IRegistroTrackingService{
 		return registroDaoImp.findById(id);
 	}
 
+	@Override
+	public List<RegistroTracking> listar() {
+		// TODO Auto-generated method stub
+		return registroDaoImp.findAll();
+	}
+
 }

@@ -16,11 +16,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import ar.edu.unju.fi.tracking.model.Localidad;
 import ar.edu.unju.fi.tracking.model.RegistroTracking;
 import ar.edu.unju.fi.tracking.model.Tripulante;
+import ar.edu.unju.fi.tracking.model.Usuario;
+import ar.edu.unju.fi.tracking.repository.IUsuarioDAO;
 import ar.edu.unju.fi.tracking.service.ILocalidadService;
 import ar.edu.unju.fi.tracking.service.IRegistroTrackingService;
 
@@ -37,6 +40,42 @@ public class RegistroTrackingController {
 	
 	@Autowired
 	private ILocalidadService localidadService;
+	
+	@Autowired
+	private RegistroTracking registro;
+	
+//	@Autowired
+	//private Usuario usuario;
+	
+	//@Autowired
+	//IUsuarioDAO iUsuario;
+	
+	@GetMapping("/listar")
+	public String listar(Model model) {
+		
+		List<RegistroTracking> registros = iregistro.listar();
+		
+		model.addAttribute("registros", registros);
+		
+		return "listarRegistros";
+	}
+	
+	@GetMapping("/nuevoRegistro")
+	public String agregar(Model model) {
+		
+		registro.setFechaHora(LocalDateTime.now());
+		model.addAttribute("fecha", registro.getFechaHora());
+		model.addAttribute("registro", registro);
+		
+		return "registro-form";
+	}
+	
+	@PostMapping("/saveRegistro")
+	public String guardar(@Valid RegistroTracking registro,Model model) {
+		registro.setFechaHora(LocalDateTime.now());
+		iregistro.guardarDatos(registro);
+		return "redirect:/listar";
+	}
 	
 	@GetMapping("/listarRegistros")
 	public String listarRegistros(@Valid String documento,Model model) {
