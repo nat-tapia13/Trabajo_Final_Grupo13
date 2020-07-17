@@ -90,10 +90,6 @@ public class RegistroTracking implements Serializable{
 	/**
 	 * Representa un objeto del tipo Usuario
 	 */
-	@Autowired
-	@ManyToOne (fetch = FetchType.LAZY)
-	@JoinColumn (name ="ID_USUARIO")
-	private Usuario usuario;
 	
 	//--------------Constructores----------------
 	/**
@@ -190,19 +186,7 @@ public class RegistroTracking implements Serializable{
 	}
 	
 	
-	/**
-	 * @return the usuario
-	 */
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	/**
-	 * @param usuario the usuario to set
-	 */
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+	
 
 	//-----------------------------Método toString---------------------------------
 	@Override

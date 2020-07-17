@@ -53,7 +53,11 @@ public class Usuario implements Serializable {
 	 */
 	@Column (name= "PASSWORD",nullable = true)
 	private String password;
-	
+	/**
+	 *Atributo que representa al tipo de usuario
+	 */
+	@Column (name="TIPO_USUARIO",length = 11, nullable = true)
+	private String tipoUsuario;
 	/**
 	 * Atributo que representa el nombre real del usuaurio
 	 */
@@ -66,17 +70,11 @@ public class Usuario implements Serializable {
 	@Column (name="APELLIDO_REAL",length = 150, nullable = true)
 	private String apellidoReal;
 	
-	/**
-	 *Atributo que representa al tipo de usuario
-	 */
-	@Column (name="TIPO_USUARIO",length = 11, nullable = true)
-	private String tipoUsuario;
+	
 	/**
 	 * Representa una lista de registro que pertenecen a un Usuario
 	 */
-	@Autowired
-	@OneToMany (mappedBy = "usuario", cascade = CascadeType.ALL)
-	private List<RegistroTracking> registro=new ArrayList<RegistroTracking>();
+	
 	
 	/*
 	 * CONSTRUCTORES
@@ -209,18 +207,7 @@ public class Usuario implements Serializable {
 	}
 	
 	
-	/**
-	 * @return the registro
-	 */
-	public List<RegistroTracking> getRegistro() {
-		return registro;
-	}
-	/**
-	 * @param registro the registro to set
-	 */
-	public void setRegistro(List<RegistroTracking> registro) {
-		this.registro = registro;
-	}
+	
 	
 	//-----------------------------Método toString---------------------------------
 	@Override

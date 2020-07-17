@@ -12,7 +12,7 @@ import ar.edu.unju.fi.tracking.model.Usuario;
  */
 public interface IUsuarioService {
 	
-	public void crear(Usuario unUsuario);
+	public void crear(Usuario usuario);
 	
 	public void eliminar(Usuario usuario);
 	
