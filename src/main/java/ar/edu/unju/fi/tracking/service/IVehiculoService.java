@@ -20,7 +20,9 @@ public interface IVehiculoService {
 	public void guardar(Vehiculo vehiculo);
 	
 	@Autowired
-	public List <Vehiculo> listarVehiculo();
+	public List <Vehiculo> listarVehiculos(String nombreLocalidad);
+	
+	public List<Vehiculo> listarVehiculosFiltro(String fecha_inicial, String fecha_fin,String nombre_localidad);
 
 	@Autowired
 	public Optional<Vehiculo> consultar(Long id);

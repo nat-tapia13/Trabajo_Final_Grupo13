@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Registros</title>
+<link rel="stylesheet" th:href ="@{/css/estilos.css}" type="text/css">
+<link rel="stylesheet" type="text/css"
+	href="webjars/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+	crossorigin="anonymous">
+
+</head>
+<body>
+
+	<div th:insert="layout/headerconsulta :: headerconsulta"></div>
+
+	<div class="container">
+		<h1>Consultar Registros Por Patente</h1>
+		<div class=" d-flex justify-content-center">
+			<form action="listarRegistrosPatente" class="col-sm-8 ">
+				<div class="form-group row">
+					<label class="col-sm-3 col-form-label" for="patente">Patente:
+					</label>
+					<div class="col-sm-9">
+						<input type="text" id="patenete" name="patente" required="required">
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-sm-3 d-flex justify-content-center">
+						<button type="submit" class="btn btn-primary">Consultar</button>
+					</div>
+
+				</div>
+			</form>
+		</div>
+		
+		<h2>Listas de Registros</h2>
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Vehiculo</th> <!-- Marca del vehiculo -->
+						<th scope="col">Patente</th> <!-- Patente del Vehiculo -->
+						<th scope="col">Tripulante</th> <!-- Apellido y Nombre de Tripulante -->
+						<th scope="col">Localidad</th> <!-- Nombre de la Localidad -->
+						<th scope="col">Detalle</th> <!-- Detalle del Lugar del Registro -->
+						<th scope="col">Fecha y Hora</th> <!-- Fecha y Hora del Registro -->
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="registro:${registros}">
+						<td th:text="${registro.vehiculo.marca}"></td>
+						<td th:text="${registro.vehiculo.patente}"></td>
+						<td th:text="${registro.id}"></td>
+						<td th:text="${registro.localidad.nombre}"></td>
+						<td th:text="${registro.detalleLugarRegistro}"></td>
+						<td th:text="${registro.fechaHora}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	
+
+
+	<script type="text/javascript" src="webjars/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="webjars/popper.js/1.16.0/popper.min.js"></script>
+	<script type="text/javascript"
+		src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+		
+	<script type="text/javascript" th:src="@{/js/tripulante.js}">	</script>
+		
+</body>
+</html>

@@ -3,6 +3,7 @@
  */
 package ar.edu.unju.fi.tracking.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,5 +25,7 @@ public interface ILocalidadService {
 	
 	@Autowired
 	public Optional<Localidad> listarId(Long id);
+	
+	public List<Localidad> listarLocalidades();
 
 }

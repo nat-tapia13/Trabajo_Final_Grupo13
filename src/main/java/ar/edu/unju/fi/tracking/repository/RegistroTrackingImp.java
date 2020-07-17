@@ -156,5 +156,23 @@ public class RegistroTrackingImp implements IRegistroTrackingDAO{
 		return false;
 	}
 
+	@Override
+	public List<RegistroTracking> listarRegistrosPorPatente(String patente) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<RegistroTracking> listarRegistrosPorDNI(String dni_tripulante) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<RegistroTracking> listarRegistrosPorLocalidad(String fehca1, String fecha2, String nombre_localidad) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }

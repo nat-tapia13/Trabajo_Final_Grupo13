@@ -19,8 +19,8 @@
 					<li class="nav-item active"><a class="nav-link" href="#">Home
 					<span class="sr-only"></span>
 					</a></li>
-					<li class="nav-item"><a class="nav-link" href="registro.html">Registros</a></li>
-					<li class="nav-item"><a class="nav-link" href="consultas.html">Consultas</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/registro}">Registros</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/listarVehiculos}">Consultas</a></li>
 					<li class="nav-item"><a class="nav-link" href="#"> </a></li>
 				</ul>
 				
@@ -31,7 +31,7 @@
 						Buscar</button>
 				</form>
 				<ul class="navbar-nav mt-2 mt-lg-0" >
-				<li class="nav-item"><a class="btn btn-outline-dark" href="a" th:href="@{/logout}">
+				<li class="nav-item"><a class="btn btn-outline-dark" href="a" th:href="@{/loguin}">
 				<!-- Para incorporar el nombre del usuario -->
 				<span th:text="${#authentication.getPrincipal().getUsername()}"></span>
 				<span > Salir </span><span class="float rigth"><i class="fas fa-sign-out-alt"></i>

@@ -25,4 +25,6 @@ public interface IUsuarioService {
 	public Usuario encontrarUsuarioNombre(Usuario usuario) throws Exception;
 
 	public String redirigirUsuario(Usuario usuario);
+	
+	public Optional<Usuario> findByApellidoReal(String apellidoReal);
 }

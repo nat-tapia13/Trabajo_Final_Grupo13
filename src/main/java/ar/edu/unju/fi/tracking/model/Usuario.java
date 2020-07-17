@@ -51,7 +51,7 @@ public class Usuario implements Serializable {
 	/**
 	 * Atributo que representa la contraseña del usuario
 	 */
-	@Column (name= "PASSWORD",length = 8,nullable = true)
+	@Column (name= "PASSWORD",nullable = true)
 	private String password;
 	
 	/**

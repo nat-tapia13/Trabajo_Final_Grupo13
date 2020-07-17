@@ -1,8 +1,16 @@
 package ar.edu.unju.fi.tracking.controller;
 
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import ar.edu.unju.fi.tracking.model.RegistroTracking;
+import ar.edu.unju.fi.tracking.service.IRegistroTrackingService;
 
 @Controller
 @RequestMapping
@@ -16,7 +24,7 @@ public class MainTrackingController {
 	//@Autowired
 	//IRegistroTrackingDAO registroRepository;
 	//descomentar lo q sigue
-	/**@Autowired
+	@Autowired
 	IRegistroTrackingService registroService;
 	@Autowired
 	private RegistroTracking registro;
@@ -37,7 +45,7 @@ public class MainTrackingController {
 		registroService.guardarDatos(registro);
 		return "redirect:/registro";
 	}
-	*/
+	
 	//solo hasta aqui
 	
 	/**

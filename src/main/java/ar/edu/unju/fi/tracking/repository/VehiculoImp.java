@@ -164,6 +164,18 @@ public class VehiculoImp implements IVehiculoDAO {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public List<Vehiculo> listarPorLocalidad(String localidad) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Vehiculo> listarPorLocalidadFechaYHora(String fehca1, String fecha2, String localidad) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 }

@@ -6,7 +6,7 @@ package ar.edu.unju.fi.tracking.service;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import ar.edu.unju.fi.tracking.model.Usuario;
@@ -18,21 +18,21 @@ import ar.edu.unju.fi.tracking.repository.IUsuarioDAO;
  *
  */
 @Service
-public class IUsuarioServiceImp implements IUsuarioService {
+public class IUsuarioServiceImp /*implements IUsuarioService */{
 
-	@Autowired
-	private IUsuarioDAO iUsuario;
+//	@Autowired
+	//private IUsuarioDAO iUsuario;
 	
   /**
    * Metodo que crea un usuario y me permite obtener la contraseñena del usuario y gurdar ese usuario
    * que ingresa
    */
-	@Override
+/*	@Override
 	public void crear(Usuario unUsuario) {
-	String pas = unUsuario.getPassword();
-	BCryptPasswordEncoder   bCryptPasswordEncoder  = new BCryptPasswordEncoder(8);
-	unUsuario.setPassword(bCryptPasswordEncoder.encode(pas));
-	 iUsuario.save(unUsuario);
+		String pas = unUsuario.getPassword();
+		BCryptPasswordEncoder   bCryptPasswordEncoder  = new BCryptPasswordEncoder(8);
+		unUsuario.setPassword(bCryptPasswordEncoder.encode(pas));
+		iUsuario.save(unUsuario);
 	
 	}
 
@@ -58,7 +58,7 @@ public class IUsuarioServiceImp implements IUsuarioService {
 	 * @return usuarioEncontrado
 	 */
 
-	@Override
+/*	@Override
 	public Optional<Usuario> encontrarUsuario(Long id) {
 		Optional <Usuario> usuarioEncontrado = iUsuario.findById(id);
 		return usuarioEncontrado;
@@ -66,12 +66,12 @@ public class IUsuarioServiceImp implements IUsuarioService {
    /**
      * 
     */
-	@Override
+	/*@Override
 	public Usuario encontrarUsuarioNombre(Usuario usuario) throws Exception {
-	Usuario usuarioEncontrado = iUsuario.findByApellidoReal(usuario.getApellidoReal()).orElseThrow(()-> new Exception("No se encontro el usaurio"));
-	if (!usuarioEncontrado.getPassword().equals(usuario.getPassword())) {
-	usuarioEncontrado = null;
-	}
+		Usuario usuarioEncontrado = iUsuario.findByApellidoReal(usuario.getApellidoReal()).orElseThrow(()-> new Exception("No se encontro el usaurio"));
+		if (!usuarioEncontrado.getPassword().equals(usuario.getPassword())) {
+			usuarioEncontrado = null;
+		}
 	return usuarioEncontrado;
 
 }
@@ -79,5 +79,11 @@ public class IUsuarioServiceImp implements IUsuarioService {
 	public String redirigirUsuario(Usuario usuario) {
 		
 		return null;
-	}	
+	}
+
+	@Override
+	public Optional<Usuario> findByApellidoReal(String apellidoReal) {
+		// TODO Auto-generated method stub
+		return null;
+	}	*/
 }

@@ -3,6 +3,7 @@
  */
 package ar.edu.unju.fi.tracking.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,9 +32,9 @@ public class VehiculoServiceImp implements IVehiculoService{
 	}
 
 	@Override
-	public List<Vehiculo> listarVehiculo() {
+	public List<Vehiculo> listarVehiculos(String nombre) {
 		
-		List<Vehiculo> vehiculos = ivehiculo.findAll();
+		List<Vehiculo> vehiculos = ivehiculo.listarPorLocalidad(nombre);
 		
 		return vehiculos;
 	}
@@ -42,6 +43,11 @@ public class VehiculoServiceImp implements IVehiculoService{
 	public Optional<Vehiculo> consultar(Long id) {
 		
 		return ivehiculo.findById(id);
+	}
+
+	@Override
+	public List<Vehiculo> listarVehiculosFiltro(String fecha_inicial, String fecha_fin,String nombre_localidad) {
+		return ivehiculo.listarPorLocalidadFechaYHora(fecha_inicial, fecha_fin, nombre_localidad);
 	}
 	
 }

@@ -1,0 +1,39 @@
+<div id="headerconsulta" th:fragment="headerconsulta">
+
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">TRACKING JUJUY</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarTogglerDemo02"
+				aria-controls="navbarTogglerDemo02" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+					<li class="nav-item active"><a class="nav-link" th:href="@{/index}">Home
+							<span class="sr-only"></span>
+					</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/listarVehiculos}">Buscar por Localidad</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/listarRegistros}">Buscar por Tripulante</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/listarRegistrosPatente}">Buscar por Patente </a></li>
+				</ul>
+
+				<form class="form-inline my-2 my-lg-0">
+					<input class="form-control mr-sm-2" type="search"
+						placeholder="Buscar">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+						Buscar</button>
+				</form>
+				<ul class="navbar-nav mt-2 mt-lg-0">
+					<li class="nav-item"><a class="btn btn-outline-dark" href="a"
+						th:href="@{/loguin}"> <!-- Para incorporar el nombre del usuario -->
+							<span th:text="${#authentication.getPrincipal().getUsername()}"></span>
+							<span> Salir </span><span class="float rigth"><i
+								class="fas fa-sign-out-alt"></i> </span></a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
