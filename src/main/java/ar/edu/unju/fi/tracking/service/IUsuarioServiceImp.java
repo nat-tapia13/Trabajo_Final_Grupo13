@@ -3,6 +3,7 @@
  */
 package ar.edu.unju.fi.tracking.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,6 +71,12 @@ public class IUsuarioServiceImp implements IUsuarioService {
 	public Optional<Usuario> findByApellidoReal(String apellidoReal) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<Usuario> obtenerUsuarios() {
+		// TODO Auto-generated method stub
+		return iuser.obtenerU();
 	}
 
 	

@@ -2,6 +2,7 @@
  * 
  */
 package ar.edu.unju.fi.tracking.service;
+import java.util.List;
 import java.util.Optional;
 
 import ar.edu.unju.fi.tracking.model.Usuario;
@@ -13,6 +14,8 @@ import ar.edu.unju.fi.tracking.model.Usuario;
 public interface IUsuarioService {
 	
 	public void crear(Usuario usuario);
+	
+	public List<Usuario> obtenerUsuarios();
 	
 	public void eliminar(Usuario usuario);
 	

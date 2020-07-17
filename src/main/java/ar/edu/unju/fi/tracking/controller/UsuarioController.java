@@ -11,7 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import java.util.List;
 import ar.edu.unju.fi.tracking.model.Usuario;
 import ar.edu.unju.fi.tracking.service.IUsuarioService;
 
@@ -28,7 +28,8 @@ public class UsuarioController {
 	private Usuario usuario;
 	@RequestMapping("/abm")
 	public String getUsuarioForm(Model model) {
-		
+		List<Usuario> usuarios =usuarioservice.obtenerUsuarios();
+		model.addAttribute("usuarios",usuarios);
 		return "abm";
 	}
 	

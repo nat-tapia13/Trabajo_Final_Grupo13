@@ -19,8 +19,8 @@ import ar.edu.unju.fi.tracking.model.Usuario;
  *
  */
 
-public class UsuarioImp implements IUsuarioDAO {
-
+public class UsuarioImp /*implements IUsuarioDAO*/ {
+/*
 	@Override
 	public List<Usuario> findAll() {
 		// TODO Auto-generated method stub
@@ -171,4 +171,11 @@ public class UsuarioImp implements IUsuarioDAO {
 		return null;
 	}
 
+	@Override
+	public List<Usuario> obtenerU() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+*/
+	
 }
