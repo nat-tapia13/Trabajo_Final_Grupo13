@@ -57,7 +57,7 @@ public class RegistroTracking implements Serializable{
 	 * Representa el vehiculo que se va a registrar
 	 */
 	@Autowired
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JoinColumn(name="ID_VEHICULO")
 	private Vehiculo vehiculo;
 	
@@ -77,7 +77,7 @@ public class RegistroTracking implements Serializable{
 	 * Representa la localidad donde se está registrando el Tracking
 	 */
 	@Autowired
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_LOCALIDAD")
 	private Localidad localidad;
 	
