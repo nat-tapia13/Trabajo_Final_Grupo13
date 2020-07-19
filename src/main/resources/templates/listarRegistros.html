@@ -37,15 +37,18 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="registro:${registros}">
-								<!--   <th scope="row">hola</th> -->
-								<td th:text="${registro.id}"></td>
-								<td th:text="${registro.tripulantes}">
-								<td th:text="${registro.localidad.nombre}"></td>
-								<td th:text="${registro.vehiculo.modelo}"></td>
-								<td th:text="${registro.vehiculo.numeroChasis}"></td>
-								<td th:text="${#temporals.format(registro.fechaHora,'dd/MM/yyyy hh:mm')}"></td>
-								<td></td>
+							<tr th:each="registroActual,listaRegistro:${registros}">
+								<td th:text="${registroActual.id}"></td>
+								<td >
+									<span th:each="trip,listaTrip:${registroActual.tripulantes}">
+										<p th:utext="${trip.apellido} + ', ' + ${trip.nombres}"></p>
+									</span>
+								</td>
+								<td th:text="${registroActual.localidad.nombre}"></td>
+								<td th:text="${registroActual.vehiculo.modelo}"></td>
+								<td th:text="${registroActual.vehiculo.numeroChasis}"></td>
+								<td th:text="${#temporals.format(registroActual.fechaHora,'dd/MM/yyyy hh:mm')}"></td>
+								 
 							</tr>
 						</tbody>
 					</table>

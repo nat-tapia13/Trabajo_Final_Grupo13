@@ -22,8 +22,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import ar.edu.unju.fi.tracking.model.Localidad;
 import ar.edu.unju.fi.tracking.model.RegistroTracking;
 import ar.edu.unju.fi.tracking.model.Tripulante;
-import ar.edu.unju.fi.tracking.model.Usuario;
-import ar.edu.unju.fi.tracking.repository.IUsuarioDAO;
 import ar.edu.unju.fi.tracking.service.ILocalidadService;
 import ar.edu.unju.fi.tracking.service.IRegistroTrackingService;
 
@@ -44,6 +42,11 @@ public class RegistroTrackingController {
 	@Autowired
 	private RegistroTracking registro;
 	
+	@Autowired
+	private Tripulante tripulante;
+	
+	List<Tripulante> lista = new ArrayList<>();
+	
 //	@Autowired
 	//private Usuario usuario;
 	
@@ -60,11 +63,42 @@ public class RegistroTrackingController {
 		return "listarRegistros";
 	}
 	
+	/**
+	 * 
+	 * @param model
+	 * @return fromulario para la carga del tripulante
+	 */
+	@GetMapping("/nuevoTripulante")
+	public String agregarTipulante(Model model) {
+		model.addAttribute("tripulante", tripulante);
+		return "tripulante-form";
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	@PostMapping("/cargarTripulante")
+	public String guardarTripulante(@Valid Tripulante tripulante) {
+		lista.add(tripulante);
+		return "redirect:/nuevoRegistro";
+	}
+	
+	/**
+	 * 
+	 * @param model
+	 * @return
+	 */
 	@GetMapping("/nuevoRegistro")
 	public String agregar(Model model) {
 		
 		registro.setFechaHora(LocalDateTime.now());
 		model.addAttribute("fecha", registro.getFechaHora());
+		
+		model.addAttribute("nuevoTripulante", tripulante);
+		
+		registro.setTripulantes(lista);
+
 		model.addAttribute("registro", registro);
 		
 		return "registro-form";
@@ -74,6 +108,7 @@ public class RegistroTrackingController {
 	public String guardar(@Valid RegistroTracking registro,Model model) {
 		registro.setFechaHora(LocalDateTime.now());
 		iregistro.guardarDatos(registro);
+		lista = new ArrayList<>();
 		return "redirect:/listar";
 	}
 	
@@ -112,14 +147,6 @@ public class RegistroTrackingController {
 		List<RegistroTracking> registros = iregistro.listarRegistrosPorLocalidad(fechaIni, fechaFin, nombre);
 		model.addAttribute("registros",registros);
 		
-		List<Tripulante> tripulantes = new ArrayList<Tripulante>();
-		
-		/*//for(int i=0;i<registros.size();i++) {
-			 tripulantes = registros.get(0).getTripulantes();
-		//}
-		
-		
-		model.addAttribute("tripulantes", tripulantes);*/
 		return "listarVehiculos";
 	}
 	
